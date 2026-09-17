@@ -313,10 +313,6 @@ main {
 }
 
 /* ---- Schedule table ---- */
-.schedule-intro {
-  margin-top: 0;
-}
-
 .schedule-scroll {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
@@ -382,6 +378,12 @@ main {
 
 .schedule-multi span {
   display: block;
+}
+
+.name-sub {
+  display: inline-block;
+  font-size: 0.85em;
+  color: var(--color-text-secondary);
 }
 
 .schedule-dash {

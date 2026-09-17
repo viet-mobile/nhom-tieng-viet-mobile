@@ -19,8 +19,8 @@
       chairman: "정명훈 (anh Huân)", talk: "비디오 (Video)", gems: "최찬 (anh Kiên)", reading: "김현일 (anh Bảo)",
       fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: ["비디오 (Video)"] },
     { month: 9, day: 24, weekday: null, special: null,
-      chairman: "최재호 (anh Tín)", talk: "정명훈 (anh Huân)", gems: "김현일 (anh Bảo)", reading: "이주복 (anh Trung)",
-      fs4: ["김자영(chị Diễm My)", "김가영(chị Vân)"], fs5: ["서민아(chị Hà)", "김수빈(chị Hồng)"], fs6: ["오기숙(chị Lan)", "이선미(chị Trà My)"], fs7: [] },
+      chairman: "최재호 (anh Tín)", talk: "정명훈 (anh Huân)", gems: "김현일 (anh Bảo)", reading: "최찬 (anh Kiên)",
+      fs4: ["김자영(chị Diễm My)", "김가영(chị Vân)"], fs5: ["서민아(chị Hà)", "김수빈(chị Hồng)"], fs6: ["이주복(anh Trung)"], fs7: [] },
     { month: 10, day: 1, weekday: null, special: null,
       chairman: "최찬 (anh Kiên)", talk: "최재호 (anh Tín)", gems: "이주복 (anh Trung)", reading: "정명훈 (anh Huân)",
       fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: [] },
@@ -127,6 +127,30 @@
     return th;
   }
 
+  function splitNamePair(text) {
+    if (!text) return null;
+    var match = /^(.*?)\s*\(([^()]*)\)\s*$/.exec(text);
+    if (!match) return null;
+    return { main: match[1].trim(), sub: match[2].trim() };
+  }
+
+  function appendNameLines(container, text) {
+    var pair = splitNamePair(text);
+    if (!pair) {
+      container.appendChild(document.createTextNode(text));
+      return;
+    }
+    container.appendChild(document.createTextNode(pair.main));
+    container.appendChild(document.createElement("br"));
+    container.appendChild(el("span", { className: "name-sub", text: pair.sub }));
+  }
+
+  function nameCell(text) {
+    var td = el("td");
+    appendNameLines(td, text);
+    return td;
+  }
+
   function multiCell(list) {
     var td = el("td");
     if (!list || !list.length) {
@@ -134,12 +158,14 @@
       return td;
     }
     if (list.length === 1) {
-      td.textContent = list[0];
+      appendNameLines(td, list[0]);
       return td;
     }
     var wrap = el("span", { className: "schedule-multi" });
     list.forEach(function (name) {
-      wrap.appendChild(el("span", { text: name }));
+      var item = el("span");
+      appendNameLines(item, name);
+      wrap.appendChild(item);
     });
     td.appendChild(wrap);
     return td;
@@ -160,9 +186,20 @@
     return td;
   }
 
+  function isPastRow(row, today) {
+    var rowDate = new Date(today.getFullYear(), row.month - 1, row.day);
+    return rowDate < today;
+  }
+
+  function filterUpcoming(data) {
+    var today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return data.filter(function (row) { return !isPastRow(row, today); });
+  }
+
   function renderTable(container, data) {
     if (!container) return;
-    data = data || getEffective();
+    data = filterUpcoming(data || getEffective());
     container.textContent = "";
 
     var wrapper = el("div", { className: "schedule-scroll" });
@@ -190,10 +227,10 @@
     data.forEach(function (row) {
       var tr = el("tr");
       tr.appendChild(dateCell(row));
-      tr.appendChild(el("td", { text: row.chairman }));
-      tr.appendChild(el("td", { text: row.talk }));
-      tr.appendChild(el("td", { text: row.gems }));
-      tr.appendChild(el("td", { text: row.reading }));
+      tr.appendChild(nameCell(row.chairman));
+      tr.appendChild(nameCell(row.talk));
+      tr.appendChild(nameCell(row.gems));
+      tr.appendChild(nameCell(row.reading));
       tr.appendChild(multiCell(row.fs4));
       tr.appendChild(multiCell(row.fs5));
       tr.appendChild(multiCell(row.fs6));
@@ -212,6 +249,7 @@
     isOverridden: isOverridden,
     save: save,
     reset: reset,
-    renderTable: renderTable
+    renderTable: renderTable,
+    filterUpcoming: filterUpcoming
   };
 })(window);
