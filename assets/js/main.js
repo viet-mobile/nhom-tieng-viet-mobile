@@ -43,4 +43,9 @@
       saveLang(next);
     });
   }
+
+  var scheduleContainer = document.getElementById("schedule-container");
+  if (scheduleContainer && window.NhomSchedule) {
+    window.NhomSchedule.renderTable(scheduleContainer);
+  }
 })();

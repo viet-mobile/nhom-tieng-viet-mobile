@@ -7,8 +7,22 @@
   --color-accent: #8a5a3b;
   --color-accent-contrast: #ffffff;
   --radius: 10px;
+  --radius-lg: 20px;
+  --radius-sm: 10px;
   --max-width: 960px;
   --font-sans: "Noto Sans", "Noto Sans KR", "Segoe UI", system-ui, -apple-system, sans-serif;
+
+  /* Pastel palette, applied in order: 자주 - 분홍 - 주황 - 노랑 - 연두 - 민트 - 하늘 - 파랑 - 네이비 - 보라 */
+  --c1: rgba(214, 163, 199, 0.55);
+  --c2: rgba(247, 197, 214, 0.55);
+  --c3: rgba(248, 202, 159, 0.55);
+  --c4: rgba(247, 224, 150, 0.55);
+  --c5: rgba(202, 224, 158, 0.55);
+  --c6: rgba(163, 223, 200, 0.55);
+  --c7: rgba(160, 205, 230, 0.55);
+  --c8: rgba(160, 180, 230, 0.55);
+  --c9: rgba(150, 160, 200, 0.55);
+  --c10: rgba(196, 170, 220, 0.55);
 }
 
 * {
@@ -64,6 +78,14 @@ a {
   outline-offset: 2px;
 }
 
+/* Site name style: uppercase bold gothic (sans-serif) for domain-like site names */
+.site-name {
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  font-family: var(--font-sans);
+}
+
 /* Bilingual text handling */
 .bilingual {
   display: flex;
@@ -111,6 +133,51 @@ h2 .bilingual .ko-text {
   color: var(--color-text);
 }
 
+/* ---- Pastel convex "water drop" boxes with asymmetric corners ---- */
+/* Top-left & bottom-right rounded, top-right & bottom-left sharp */
+.asym {
+  border-radius: var(--radius-lg) 0 var(--radius-lg) 0;
+}
+
+.asym-sm {
+  border-radius: var(--radius-sm) 0 var(--radius-sm) 0;
+}
+
+.bubble {
+  --box-color: var(--c7);
+  position: relative;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.8), var(--box-color) 68%);
+  box-shadow:
+    inset 0 2px 3px rgba(255, 255, 255, 0.75),
+    inset 0 -8px 14px rgba(0, 0, 0, 0.05),
+    0 6px 14px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* Manual color utility classes (for single, non-grouped elements) */
+.box-c1 { --box-color: var(--c1); }
+.box-c2 { --box-color: var(--c2); }
+.box-c3 { --box-color: var(--c3); }
+.box-c4 { --box-color: var(--c4); }
+.box-c5 { --box-color: var(--c5); }
+.box-c6 { --box-color: var(--c6); }
+.box-c7 { --box-color: var(--c7); }
+.box-c8 { --box-color: var(--c8); }
+.box-c9 { --box-color: var(--c9); }
+.box-c10 { --box-color: var(--c10); }
+
+/* Automatic sequential coloring for a group of boxes */
+.pastel-group > :nth-child(10n+1) { --box-color: var(--c1); }
+.pastel-group > :nth-child(10n+2) { --box-color: var(--c2); }
+.pastel-group > :nth-child(10n+3) { --box-color: var(--c3); }
+.pastel-group > :nth-child(10n+4) { --box-color: var(--c4); }
+.pastel-group > :nth-child(10n+5) { --box-color: var(--c5); }
+.pastel-group > :nth-child(10n+6) { --box-color: var(--c6); }
+.pastel-group > :nth-child(10n+7) { --box-color: var(--c7); }
+.pastel-group > :nth-child(10n+8) { --box-color: var(--c8); }
+.pastel-group > :nth-child(10n+9) { --box-color: var(--c9); }
+.pastel-group > :nth-child(10n) { --box-color: var(--c10); }
+
 /* Header */
 .site-header {
   background: var(--color-surface);
@@ -148,18 +215,11 @@ h2 .bilingual .ko-text {
 .lang-toggle {
   font-family: inherit;
   font-size: 0.95rem;
-  font-weight: 600;
-  padding: 0.5em 1em;
-  border-radius: var(--radius);
-  border: 1px solid var(--color-accent);
-  background: var(--color-surface);
-  color: var(--color-accent);
+  font-weight: 700;
+  padding: 0.5em 1.1em;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  color: var(--color-text);
   cursor: pointer;
-}
-
-.lang-toggle:hover {
-  background: var(--color-accent);
-  color: var(--color-accent-contrast);
 }
 
 .viet-mobile-link {
@@ -181,23 +241,16 @@ main {
 .menu-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.75rem;
+  gap: 0.9rem;
   margin-bottom: 2.5rem;
 }
 
 .menu-card {
   display: block;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
   padding: 1.1rem 1.25rem;
   text-decoration: none;
   color: var(--color-text);
   font-size: 1.05rem;
-}
-
-.menu-card:hover {
-  border-color: var(--color-accent);
 }
 
 .content-section {
@@ -217,13 +270,10 @@ main {
   padding: 0;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.75rem;
+  gap: 0.9rem;
 }
 
 .info-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
   padding: 1.1rem 1.25rem;
 }
 
@@ -256,16 +306,86 @@ main {
 .external-button {
   display: inline-block;
   align-self: flex-start;
-  background: var(--color-accent);
-  color: var(--color-accent-contrast);
+  color: var(--color-text);
   text-decoration: none;
-  padding: 0.7em 1.2em;
-  border-radius: var(--radius);
-  font-weight: 600;
+  padding: 0.7em 1.3em;
+  font-weight: 700;
 }
 
-.external-button:hover {
-  opacity: 0.9;
+/* ---- Schedule table ---- */
+.schedule-intro {
+  margin-top: 0;
+}
+
+.schedule-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.schedule-table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 640px;
+  font-size: 0.88rem;
+  background: var(--color-surface);
+}
+
+.schedule-table th,
+.schedule-table td {
+  border: 1px solid var(--color-border);
+  padding: 0.5em 0.6em;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.schedule-table thead th {
+  font-weight: 700;
+}
+
+.schedule-table thead th.group-treasure {
+  background: var(--c7);
+}
+
+.schedule-table thead th.group-fs {
+  background: var(--c4);
+}
+
+.schedule-table thead th.col-date,
+.schedule-table thead th.col-chair {
+  background: var(--color-surface);
+}
+
+.schedule-table .th-vi {
+  display: block;
+  font-weight: 400;
+  font-size: 0.82em;
+  color: var(--color-text-secondary);
+  margin-top: 0.15em;
+}
+
+.schedule-table tbody tr:nth-child(even) {
+  background: rgba(160, 205, 230, 0.12);
+}
+
+.schedule-table td.col-date {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.schedule-note {
+  display: block;
+  margin-top: 0.2em;
+  color: var(--color-accent);
+  font-weight: 700;
+  font-size: 0.85em;
+}
+
+.schedule-multi span {
+  display: block;
+}
+
+.schedule-dash {
+  color: var(--color-text-secondary);
 }
 
 /* Footer */
@@ -287,7 +407,7 @@ main {
 
 .footer-links a {
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .footer-links a:hover {
@@ -298,6 +418,119 @@ main {
   color: var(--color-text-secondary);
   font-size: 0.9rem;
   justify-content: center;
+}
+
+.footer-admin-link {
+  display: inline-block;
+  margin-top: 1.25rem;
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+}
+
+.footer-admin-link:hover {
+  text-decoration: underline;
+}
+
+/* ---- Admin page ---- */
+.admin-main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+.admin-notice {
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.92rem;
+  color: var(--color-text);
+}
+
+.admin-notice strong {
+  color: var(--color-accent);
+}
+
+.admin-login-form {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 360px;
+}
+
+.admin-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.admin-field label {
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.admin-field input,
+.admin-field textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.6em 0.8em;
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.admin-error {
+  color: #a33d3d;
+  font-size: 0.9rem;
+  min-height: 1.2em;
+}
+
+.admin-button {
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.65em 1.2em;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.admin-button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.25rem 0;
+}
+
+.admin-editor-row {
+  padding: 1.1rem 1.25rem;
+  margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.7rem;
+}
+
+.admin-editor-row .admin-field input,
+.admin-editor-row .admin-field textarea {
+  width: 100%;
+}
+
+.admin-editor-row-title {
+  font-weight: 700;
+  margin: 0 0 0.3rem;
+}
+
+.admin-export-output {
+  width: 100%;
+  min-height: 220px;
+  font-family: "Courier New", monospace;
+  font-size: 0.82rem;
+  padding: 1rem;
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.hidden {
+  display: none !important;
 }
 
 /* Wide screens */
@@ -321,5 +554,9 @@ main {
     justify-content: center;
     flex-wrap: wrap;
     gap: 1.5rem;
+  }
+
+  .admin-editor-row {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

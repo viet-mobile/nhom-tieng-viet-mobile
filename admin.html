@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>관리자 / Quản trị — Nhóm tiếng Việt Iksan</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="lang-vi">
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <p class="brand-title bilingual site-name">
+        <span class="vi-text">Nhóm tiếng Việt Iksan</span>
+        <span class="ko-text">익산 베트남어 집단</span>
+      </p>
+      <p class="brand-subtitle bilingual">
+        <span class="vi-text">Trang quản trị</span>
+        <span class="ko-text">관리자 페이지</span>
+      </p>
+    </div>
+    <div class="header-actions">
+      <a class="viet-mobile-link site-name" href="index.html">← index</a>
+    </div>
+  </div>
+</header>
+
+<main class="admin-main">
+
+  <div class="admin-notice bubble asym box-c4">
+    <p class="bilingual bilingual-block">
+      <span class="vi-text"><strong>Lưu ý:</strong> đây là trang tĩnh, không có máy chủ. Đăng nhập này chỉ để ẩn khỏi người xem thông thường, không phải bảo mật thực sự. Thay đổi chỉ lưu trong trình duyệt này — để áp dụng cho mọi người, hãy xuất mã và thay vào tệp assets/js/schedule-data.js rồi triển khai lại.</span>
+      <span class="ko-text"><strong>안내:</strong> 이 사이트는 서버가 없는 정적 사이트입니다. 이 로그인은 일반 방문자에게 노출되지 않도록 하는 용도일 뿐, 실제 보안 인증이 아닙니다. 저장한 내용은 이 브라우저에만 남으며, 모든 방문자에게 반영하려면 코드를 내보내 assets/js/schedule-data.js 파일에 붙여넣고 다시 배포해야 합니다.</span>
+    </p>
+  </div>
+
+  <section id="admin-login">
+    <h2 class="bilingual">
+      <span class="vi-text">Đăng nhập</span>
+      <span class="ko-text">로그인</span>
+    </h2>
+    <form id="login-form" class="admin-login-form bubble asym box-c7">
+      <div class="admin-field">
+        <label for="login-id">ID</label>
+        <input type="text" id="login-id" name="login-id" autocomplete="username" required>
+      </div>
+      <div class="admin-field">
+        <label for="login-pw">Password / 비밀번호</label>
+        <input type="password" id="login-pw" name="login-pw" autocomplete="current-password" required>
+      </div>
+      <p id="login-error" class="admin-error" role="alert"></p>
+      <button type="submit" class="admin-button bubble asym-sm box-c1">
+        <span class="bilingual bilingual-inline">
+          <span class="vi-text">Đăng nhập</span>
+          <span class="ko-text">로그인</span>
+        </span>
+      </button>
+    </form>
+  </section>
+
+  <section id="admin-editor" class="hidden">
+    <div class="header-actions" style="justify-content: space-between; margin-bottom: 1rem;">
+      <h2 class="bilingual" style="margin:0;">
+        <span class="vi-text">Chỉnh sửa lịch</span>
+        <span class="ko-text">일정 편집</span>
+      </h2>
+      <button id="logout-button" type="button" class="admin-button bubble asym-sm box-c2">
+        <span class="bilingual bilingual-inline">
+          <span class="vi-text">Đăng xuất</span>
+          <span class="ko-text">로그아웃</span>
+        </span>
+      </button>
+    </div>
+
+    <div class="admin-button-row">
+      <button id="add-row-button" type="button" class="admin-button bubble asym-sm box-c5">
+        <span class="bilingual bilingual-inline"><span class="vi-text">+ Thêm dòng</span><span class="ko-text">+ 행 추가</span></span>
+      </button>
+      <button id="save-preview-button" type="button" class="admin-button bubble asym-sm box-c6">
+        <span class="bilingual bilingual-inline"><span class="vi-text">Lưu xem trước (trình duyệt này)</span><span class="ko-text">미리보기 저장 (이 브라우저)</span></span>
+      </button>
+      <button id="reset-button" type="button" class="admin-button bubble asym-sm box-c3">
+        <span class="bilingual bilingual-inline"><span class="vi-text">Khôi phục mặc định</span><span class="ko-text">기본값으로 초기화</span></span>
+      </button>
+      <button id="export-button" type="button" class="admin-button bubble asym-sm box-c8">
+        <span class="bilingual bilingual-inline"><span class="vi-text">Xuất mã</span><span class="ko-text">코드 내보내기</span></span>
+      </button>
+    </div>
+
+    <p id="save-status" class="admin-error" role="status" style="color: var(--color-accent);"></p>
+
+    <div id="editor-rows"></div>
+
+    <div id="export-section" class="hidden">
+      <h3 class="bilingual">
+        <span class="vi-text">Mã để dán vào assets/js/schedule-data.js</span>
+        <span class="ko-text">assets/js/schedule-data.js에 붙여넣을 코드</span>
+      </h3>
+      <p class="bilingual bilingual-block">
+        <span class="vi-text">Sao chép đoạn dưới đây và thay thế toàn bộ nội dung của biến DEFAULT_SCHEDULE trong tệp assets/js/schedule-data.js, sau đó triển khai lại trang.</span>
+        <span class="ko-text">아래 코드를 복사하여 assets/js/schedule-data.js 파일의 DEFAULT_SCHEDULE 변수 내용을 통째로 교체한 뒤 사이트를 다시 배포하세요.</span>
+      </p>
+      <textarea id="export-output" class="admin-export-output" readonly></textarea>
+      <div class="admin-button-row">
+        <button id="copy-export-button" type="button" class="admin-button bubble asym-sm box-c10">
+          <span class="bilingual bilingual-inline"><span class="vi-text">Sao chép</span><span class="ko-text">복사</span></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="assets/js/schedule-data.js"></script>
+<script src="assets/js/admin.js"></script>
+</body>
+</html>
