@@ -386,6 +386,12 @@ main {
   color: var(--color-text-secondary);
 }
 
+.schedule-event {
+  font-weight: 700;
+  color: var(--color-accent);
+  background: rgba(160, 205, 230, 0.12);
+}
+
 .schedule-dash {
   color: var(--color-text-secondary);
 }

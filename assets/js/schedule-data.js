@@ -49,8 +49,14 @@
       chairman: "정명훈 (anh Huân)", talk: "이주복 (anh Trung)", gems: "최재호 (anh Tín)", reading: "최찬 (anh Kiên)",
       fs4: ["김가영(chị Vân)", "최혜연(chị Hiền)"], fs5: ["김수빈(chị Hồng)", "최혜원(chị Huệ Nhi)"], fs6: ["김현일(anh Bảo)"], fs7: [] },
     { month: 12, day: 3, weekday: null, special: null,
-      chairman: "최찬 (anh Kiên)", talk: "최재호 (anh Tín)", gems: "김현일 (anh Bảo)", reading: "비디오 (Video)",
-      fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: [] },
+      chairman: "", talk: "", gems: "", reading: "",
+      fs4: [], fs5: [], fs6: [], fs7: [] },
+    { month: 12, day: 4, weekday: "금요일", special: null,
+      event: "군산 새만금 컨벤션 센터 한국어 순회구 파이오니아 모임" },
+    { month: 12, day: 5, weekday: "토요일", special: null,
+      event: "천안대회회관 다언어 나 순회구 베트남어 파이오니아 모임" },
+    { month: 12, day: 6, weekday: "일요일", special: null,
+      event: "천안대회회관 다언어 나 순회구 베트남어 순회대회" },
     { month: 12, day: 10, weekday: null, special: null,
       chairman: "최재호 (anh Tín)", talk: "비디오 (Video)", gems: "이주복 (anh Trung)", reading: "김현일 (anh Bảo)",
       fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: [] },
@@ -227,14 +233,18 @@
     data.forEach(function (row) {
       var tr = el("tr");
       tr.appendChild(dateCell(row));
-      tr.appendChild(nameCell(row.chairman));
-      tr.appendChild(nameCell(row.talk));
-      tr.appendChild(nameCell(row.gems));
-      tr.appendChild(nameCell(row.reading));
-      tr.appendChild(multiCell(row.fs4));
-      tr.appendChild(multiCell(row.fs5));
-      tr.appendChild(multiCell(row.fs6));
-      tr.appendChild(multiCell(row.fs7));
+      if (row.event) {
+        tr.appendChild(el("td", { className: "schedule-event", text: row.event, colspan: 8 }));
+      } else {
+        tr.appendChild(nameCell(row.chairman));
+        tr.appendChild(nameCell(row.talk));
+        tr.appendChild(nameCell(row.gems));
+        tr.appendChild(nameCell(row.reading));
+        tr.appendChild(multiCell(row.fs4));
+        tr.appendChild(multiCell(row.fs5));
+        tr.appendChild(multiCell(row.fs6));
+        tr.appendChild(multiCell(row.fs7));
+      }
       tbody.appendChild(tr);
     });
     table.appendChild(tbody);
