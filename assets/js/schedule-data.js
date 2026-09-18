@@ -52,11 +52,14 @@
       chairman: "", talk: "", gems: "", reading: "",
       fs4: [], fs5: [], fs6: [], fs7: [] },
     { month: 12, day: 4, weekday: "금요일", special: null,
-      event: "군산 새만금 컨벤션 센터 한국어 순회구 파이오니아 모임" },
+      event: "군산 새만금 컨벤션 센터 한국어 순회구 파이오니아 모임(오후 2시~오후 5시15분)",
+      eventVi: "Buổi họp tiên phong của vòng quanh tiếng Hàn tại Trung tâm Hội nghị Saemangeum, Gunsan (14:00~17:15)" },
     { month: 12, day: 5, weekday: "토요일", special: null,
-      event: "천안대회회관 다언어 나 순회구 베트남어 파이오니아 모임" },
+      event: "천안대회회관 다언어 나 순회구 베트남어 파이오니아 모임(오후 5시~오후 8시15분)",
+      eventVi: "Buổi họp tiên phong tiếng Việt của vòng quanh Đa ngôn ngữ B tại Phòng hội nghị Cheonan (17:00~20:15)" },
     { month: 12, day: 6, weekday: "일요일", special: null,
-      event: "천안대회회관 다언어 나 순회구 베트남어 순회대회" },
+      event: "천안대회회관 다언어 나 순회구 베트남어 순회대회(오전 9시20분~오후 4시)",
+      eventVi: "Hội nghị vòng quanh tiếng Việt của vòng quanh Đa ngôn ngữ B tại Phòng hội nghị Cheonan (09:20~16:00)" },
     { month: 12, day: 10, weekday: null, special: null,
       chairman: "최재호 (anh Tín)", talk: "비디오 (Video)", gems: "이주복 (anh Trung)", reading: "김현일 (anh Bảo)",
       fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: [] },
@@ -234,7 +237,12 @@
       var tr = el("tr");
       tr.appendChild(dateCell(row));
       if (row.event) {
-        tr.appendChild(el("td", { className: "schedule-event", text: row.event, colspan: 8 }));
+        var eventTd = el("td", { className: "schedule-event", colspan: 8 });
+        eventTd.appendChild(document.createTextNode(row.event));
+        if (row.eventVi) {
+          eventTd.appendChild(el("span", { className: "th-vi", text: row.eventVi }));
+        }
+        tr.appendChild(eventTd);
       } else {
         tr.appendChild(nameCell(row.chairman));
         tr.appendChild(nameCell(row.talk));
