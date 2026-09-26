@@ -74,6 +74,28 @@
       fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: [] }
   ];
 
+  var WEEKEND_SCHEDULE = [
+    { month: 9, day: 27,
+      chairman: "정명훈 (anh Huân)",
+      talkLabel: "특별공개강연 · Bài giảng đặc biệt",
+      talkKo: "성경이 당신에게 어떻게 도움이 됩니까?",
+      talkVi: "Kinh Thánh có thể giúp quý vị như thế nào?",
+      speaker: "김현일 (anh Bảo)",
+      wtConductor: "이주복 (anh Trung)", wtReader: "최찬 (anh Kiên)", closing: "김현일 (anh Bảo)" },
+    { month: 10, day: 4,
+      chairman: "이주복 (anh Trung)",
+      talkKo: "(116) 친구를 지혜롭게 선택하라! (JW스트림)",
+      talkVi: "(116) Hãy khéo chọn bạn bè!",
+      speaker: "anh Tùng",
+      wtConductor: "김현일 (anh Bảo)", wtReader: "최재호 (anh Tín)", closing: "최찬 (anh Kiên)" },
+    { month: 10, day: 11,
+      chairman: "최찬 (anh Kiên)",
+      talkKo: "미정 (JW스트림)",
+      talkVi: "chưa biết",
+      speaker: "미정 (chưa biết)",
+      wtConductor: "김현일 (anh Bảo)", wtReader: "이주복 (anh Trung)", closing: "정명훈 (anh Huân)" }
+  ];
+
   function load() {
     try {
       var raw = localStorage.getItem(STORAGE_KEY);
@@ -261,7 +283,68 @@
     container.appendChild(wrapper);
   }
 
+  function weekendTalkCell(row) {
+    var td = el("td");
+    if (row.talkLabel) {
+      td.appendChild(el("strong", { className: "schedule-note", text: row.talkLabel }));
+    }
+    td.appendChild(document.createTextNode(row.talkKo));
+    td.appendChild(el("span", { className: "th-vi", text: row.talkVi }));
+    if (row.speaker) {
+      var speaker = el("span", { className: "talk-speaker" });
+      var pair = splitNamePair(row.speaker);
+      if (pair) {
+        speaker.appendChild(document.createTextNode("연사: " + pair.main));
+        speaker.appendChild(document.createElement("br"));
+        speaker.appendChild(el("span", { className: "name-sub", text: "Diễn giả: " + pair.sub }));
+      } else {
+        speaker.appendChild(el("span", { className: "name-sub", text: "Diễn giả: " + row.speaker }));
+      }
+      td.appendChild(speaker);
+    }
+    return td;
+  }
+
+  function renderWeekendTable(container, data) {
+    if (!container) return;
+    data = filterUpcoming(data || WEEKEND_SCHEDULE);
+    container.textContent = "";
+    if (!data.length) return;
+
+    var wrapper = el("div", { className: "schedule-scroll" });
+    var table = el("table", { className: "schedule-table schedule-weekend" });
+
+    var thead = el("thead");
+    var tr = el("tr");
+    tr.appendChild(headerCell("th", ["날짜", "Ngày"], { className: "col-date" }));
+    tr.appendChild(headerCell("th", ["사회 및 시작 기도", "Chủ tọa và cầu nguyện bắt đầu"], { className: "group-treasure" }));
+    tr.appendChild(headerCell("th", ["공개강연", "Bài diễn văn công cộng"], { className: "group-treasure" }));
+    tr.appendChild(headerCell("th", ["파수대 연구 사회", "Điều khiển bài học Tháp Canh"], { className: "group-fs" }));
+    tr.appendChild(headerCell("th", ["파수대 연구 낭독", "Đọc bài học Tháp Canh"], { className: "group-fs" }));
+    tr.appendChild(headerCell("th", ["마치는 기도", "Cầu nguyện kết thúc"], { className: "group-treasure" }));
+    thead.appendChild(tr);
+    table.appendChild(thead);
+
+    var tbody = el("tbody");
+    data.forEach(function (row) {
+      var trow = el("tr");
+      trow.appendChild(dateCell(row));
+      trow.appendChild(nameCell(row.chairman));
+      trow.appendChild(weekendTalkCell(row));
+      trow.appendChild(nameCell(row.wtConductor));
+      trow.appendChild(nameCell(row.wtReader));
+      trow.appendChild(nameCell(row.closing));
+      tbody.appendChild(trow);
+    });
+    table.appendChild(tbody);
+
+    wrapper.appendChild(table);
+    container.appendChild(wrapper);
+  }
+
   global.NhomSchedule = {
+    WEEKEND_SCHEDULE: WEEKEND_SCHEDULE,
+    renderWeekendTable: renderWeekendTable,
     DEFAULT_SCHEDULE: DEFAULT_SCHEDULE,
     getEffective: getEffective,
     isOverridden: isOverridden,

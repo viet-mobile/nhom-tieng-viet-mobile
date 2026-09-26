@@ -48,4 +48,9 @@
   if (scheduleContainer && window.NhomSchedule) {
     window.NhomSchedule.renderTable(scheduleContainer);
   }
+
+  var weekendContainer = document.getElementById("weekend-schedule-container");
+  if (weekendContainer && window.NhomSchedule) {
+    window.NhomSchedule.renderWeekendTable(weekendContainer);
+  }
 })();

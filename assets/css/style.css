@@ -376,6 +376,21 @@ main {
   font-size: 0.85em;
 }
 
+.schedule-subheading {
+  margin: 1.25rem 0 0.6rem;
+  font-size: 1.05rem;
+}
+
+.schedule-subheading .vi-text,
+.schedule-subheading .ko-text {
+  font-weight: 700;
+}
+
+.talk-speaker {
+  display: block;
+  margin-top: 0.4em;
+}
+
 .schedule-multi span {
   display: block;
 }
