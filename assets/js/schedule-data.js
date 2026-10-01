@@ -150,7 +150,7 @@
       talkKo: "미정 (JW스트림)",
       talkVi: "chưa biết",
       speaker: "미정 (chưa biết)",
-      wtConductor: "김현일 (anh Bảo)", wtReader: "최재호 (anh Tín)", closing: "정명훈 (anh Huân)" },
+      wtConductor: "김현일 (anh Bảo)", wtReader: "낭독 없음, 30분 문답식 (Không đọc, hỏi đáp 30 phút)", closing: "정명훈 (anh Huân)" },
     { month: 1, day: 3, year: 2027,
       chairman: "최재호 (anh Tín)",
       talkKo: "미정 (JW스트림)",
