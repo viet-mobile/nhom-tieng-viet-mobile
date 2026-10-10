@@ -146,15 +146,15 @@
       wtConductor: "김현일 (anh Bảo)", wtReader: "최재호 (anh Tín)", closing: "최찬 (anh Kiên)" },
     { month: 10, day: 11, year: 2026,
       chairman: "최찬 (anh Kiên)",
-      talkKo: "미정 (JW스트림)",
-      talkVi: "chưa biết",
-      speaker: "미정 (chưa biết)",
+      talkKo: "(111) (JW스트림)",
+      talkVi: "(111) Sự chữa lành hoàn toàn cho nhân loại—Như thế nào?",
+      speaker: "anh Khanh",
       wtConductor: "김현일 (anh Bảo)", wtReader: "이주복 (anh Trung)", closing: "정명훈 (anh Huân)" },
     { month: 10, day: 18, year: 2026,
       chairman: "최재호 (anh Tín)",
-      talkKo: "미정 (JW스트림)",
-      talkVi: "chưa biết",
-      speaker: "미정 (chưa biết)",
+      talkKo: "(131) (JW스트림)",
+      talkVi: "(131) Hãy đứng vững trước Ác Quỷ",
+      speaker: "anh Tín",
       wtConductor: "김현일 (anh Bảo)", wtReader: "최찬 (anh Kiên)", closing: "이주복 (anh Trung)" },
     { month: 10, day: 25, year: 2026,
       chairman: "이주복 (anh Trung)",
@@ -682,25 +682,38 @@
     return td;
   }
 
+  function isUndecided(text) {
+    return !text || /^미정/.test(text) || text === "chưa biết";
+  }
+
   function weekendTalkCell(row) {
     var td = labelledCell(["공개강연", "Bài diễn văn công cộng"], 3);
+    var speakerKnown = !isUndecided(row.speaker);
     if (row.talkLabel) {
       td.appendChild(el("strong", { className: "schedule-note", text: row.talkLabel }));
     }
-    td.appendChild(document.createTextNode(row.talkKo));
-    td.appendChild(el("span", { className: "th-vi", text: row.talkVi }));
-    if (row.speaker) {
-      var speaker = el("span", { className: "talk-speaker" });
-      var pair = splitNamePair(row.speaker);
-      if (pair) {
-        speaker.appendChild(document.createTextNode("연사: " + pair.main));
-        speaker.appendChild(document.createElement("br"));
-        speaker.appendChild(el("span", { className: "name-sub", text: "Diễn giả: " + pair.sub }));
-      } else {
-        speaker.appendChild(el("span", { className: "name-sub", text: "Diễn giả: " + row.speaker }));
-      }
-      td.appendChild(speaker);
+    if (!speakerKnown) {
+      /* 연사 미정: "미정 (JW스트림)" 한 줄만 표시 */
+      td.appendChild(document.createTextNode("미정 (JW스트림)"));
+      return td;
     }
+    /* 연사 확정: 제목이 미정이면 해당 줄(한국어/베트남어)을 숨김 */
+    if (!isUndecided(row.talkKo)) {
+      td.appendChild(document.createTextNode(row.talkKo));
+    }
+    if (!isUndecided(row.talkVi)) {
+      td.appendChild(el("span", { className: "th-vi", text: row.talkVi }));
+    }
+    var speaker = el("span", { className: "talk-speaker" });
+    var pair = splitNamePair(row.speaker);
+    if (pair) {
+      speaker.appendChild(document.createTextNode("연사: " + pair.main));
+      speaker.appendChild(document.createElement("br"));
+      speaker.appendChild(el("span", { className: "name-sub", text: "Diễn giả: " + pair.sub }));
+    } else {
+      speaker.appendChild(el("span", { className: "name-sub", text: "Diễn giả: " + row.speaker }));
+    }
+    td.appendChild(speaker);
     return td;
   }
 
