@@ -359,8 +359,31 @@ main {
   margin-top: 0.15em;
 }
 
-.schedule-table tbody tr:nth-child(even) {
-  background: rgba(160, 205, 230, 0.12);
+.schedule-table tbody tr.row-weekend {
+  background: rgba(160, 205, 230, 0.16);
+}
+
+.schedule-kind {
+  display: inline-block;
+  margin-top: 0.25em;
+  padding: 0 0.5em;
+  border-radius: 999px;
+  font-size: 0.75em;
+  font-weight: 700;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+}
+
+.cell-label {
+  display: block;
+  font-size: 0.78em;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+}
+
+.cell-label-vi {
+  font-weight: 400;
+  margin-bottom: 0.3em;
 }
 
 .schedule-table td.col-date {

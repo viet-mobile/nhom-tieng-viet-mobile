@@ -15,124 +15,177 @@
   var STORAGE_KEY = "nhom-tieng-viet-iksan-schedule-v1";
 
   var DEFAULT_SCHEDULE = [
-    { month: 9, day: 17, weekday: null, special: null,
+    { month: 9, day: 17, year: 2026, weekday: null, special: null,
       chairman: "정명훈 (anh Huân)", talk: "비디오 (Video)", gems: "최찬 (anh Kiên)", reading: "김현일 (anh Bảo)",
       fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: ["비디오 (Video)"] },
-    { month: 9, day: 24, weekday: null, special: null,
+    { month: 9, day: 24, year: 2026, weekday: null, special: null,
       chairman: "최재호 (anh Tín)", talk: "정명훈 (anh Huân)", gems: "김현일 (anh Bảo)", reading: "최찬 (anh Kiên)",
       fs4: ["김자영(chị Diễm My)", "김가영(chị Vân)"], fs5: ["서민아(chị Hà)", "김수빈(chị Hồng)"], fs6: ["이주복(anh Trung)"], fs7: [] },
-    { month: 10, day: 1, weekday: null, special: null,
+    { month: 10, day: 1, year: 2026, weekday: null, special: null,
       chairman: "최찬 (anh Kiên)", talk: "최재호 (anh Tín)", gems: "이주복 (anh Trung)", reading: "정명훈 (anh Huân)",
       fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: [] },
-    { month: 10, day: 8, weekday: null, special: null,
+    { month: 10, day: 8, year: 2026, weekday: null, special: null,
       chairman: "김현일 (anh Bảo)", talk: "비디오 (Video)", gems: "정명훈 (anh Huân)", reading: "비디오 (Video)",
       fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: ["비디오 (Video)"] },
-    { month: 10, day: 15, weekday: null, special: null,
+    { month: 10, day: 15, year: 2026, weekday: null, special: null,
       chairman: "정명훈 (anh Huân)", talk: "이주복 (anh Trung)", gems: "최재호 (anh Tín)", reading: "최찬 (anh Kiên)",
       fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: [] },
-    { month: 10, day: 22, weekday: null, special: null,
+    { month: 10, day: 22, year: 2026, weekday: null, special: null,
       chairman: "이주복 (anh Trung)", talk: "최찬 (anh Kiên)", gems: "김현일 (anh Bảo)", reading: "비디오 (Video)",
       fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: ["비디오 (Video)"] },
-    { month: 10, day: 29, weekday: null, special: null,
+    { month: 10, day: 29, year: 2026, weekday: null, special: null,
       chairman: "최재호 (anh Tín)", talk: "김현일 (anh Bảo)", gems: "이주복 (anh Trung)", reading: "김민우 (em Vũ)",
       fs4: ["최혜린(chị Huệ Linh)", "이윤서(chị Luyến)"], fs5: ["최혜연(chị Hiền)", "정수진(chị Thơm)"], fs6: ["최혜원(chị Huệ Nhi)", "한윤경(chị Thu Hằng)"], fs7: [] },
-    { month: 11, day: 5, weekday: null, special: null,
+    { month: 11, day: 5, year: 2026, weekday: null, special: null,
       chairman: "최찬 (anh Kiên)", talk: "정명훈 (anh Huân)", gems: "최재호 (anh Tín)", reading: "비디오 (Video)",
       fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: [] },
-    { month: 11, day: 12, weekday: null, special: null,
+    { month: 11, day: 12, year: 2026, weekday: null, special: null,
       chairman: "이주복 (anh Trung)", talk: "김현일 (anh Bảo)", gems: "최찬 (anh Kiên)", reading: "정명훈 (anh Huân)",
       fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: [] },
-    { month: 11, day: 14, weekday: "토요일", special: null,
+    { month: 11, day: 14, year: 2026, weekday: "토요일", special: null,
       event: "오전 본부 대표자 방문 특별 모임 (11월 15일 일요일 집회 없음)",
       eventVi: "Buổi họp đặc biệt với đại diện trụ sở chi nhánh vào buổi sáng (Chủ nhật 15/11 không có buổi họp)" },
-    { month: 11, day: 19, weekday: null, special: null,
+    { month: 11, day: 19, year: 2026, weekday: null, special: null,
       chairman: "김현일 (anh Bảo)", talk: "비디오 (Video)", gems: "이주복 (anh Trung)", reading: "비디오 (Video)",
       fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: [] },
-    { month: 11, day: 26, weekday: "목요일", special: "베트남어 순방",
+    { month: 11, day: 26, year: 2026, weekday: "목요일", special: "베트남어 순방",
       chairman: "정명훈 (anh Huân)", talk: "이주복 (anh Trung)", gems: "최재호 (anh Tín)", reading: "최찬 (anh Kiên)",
       fs4: ["김가영(chị Vân)", "최혜연(chị Hiền)"], fs5: ["김수빈(chị Hồng)", "최혜원(chị Huệ Nhi)"], fs6: ["김현일(anh Bảo)"], fs7: [] },
-    { month: 12, day: 3, weekday: null, special: null,
+    { month: 12, day: 3, year: 2026, weekday: null, special: null,
       chairman: "", talk: "", gems: "", reading: "",
       fs4: [], fs5: [], fs6: [], fs7: [] },
-    { month: 12, day: 4, weekday: "금요일", special: null,
+    { month: 12, day: 4, year: 2026, weekday: "금요일", special: null,
       event: "군산 새만금 컨벤션 센터 한국어 순회구 파이오니아 모임(오후 2시~오후 5시15분)",
       eventVi: "Buổi họp tiên phong của vòng quanh tiếng Hàn tại Trung tâm Hội nghị Saemangeum, Gunsan (14:00~17:15)" },
-    { month: 12, day: 5, weekday: "토요일", special: null,
+    { month: 12, day: 5, year: 2026, weekday: "토요일", special: null,
       event: "천안대회회관 다언어 나 순회구 베트남어 파이오니아 모임(오후 5시~오후 8시15분)",
       eventVi: "Buổi họp tiên phong tiếng Việt của vòng quanh Đa ngôn ngữ B tại Phòng hội nghị Cheonan (17:00~20:15)" },
-    { month: 12, day: 6, weekday: "일요일", special: null,
+    { month: 12, day: 6, year: 2026, weekday: "일요일", special: null,
       event: "천안대회회관 다언어 나 순회구 베트남어 순회대회(오전 9시20분~오후 4시) - 이 날은 집회 없음",
       eventVi: "Hội nghị vòng quanh tiếng Việt của vòng quanh Đa ngôn ngữ B tại Phòng hội nghị Cheonan (09:20~16:00) - Hôm này không có buổi họp" },
-    { month: 12, day: 10, weekday: null, special: null,
+    { month: 12, day: 10, year: 2026, weekday: null, special: null,
       chairman: "최재호 (anh Tín)", talk: "비디오 (Video)", gems: "이주복 (anh Trung)", reading: "김현일 (anh Bảo)",
       fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: [] },
-    { month: 12, day: 17, weekday: null, special: null,
+    { month: 12, day: 17, year: 2026, weekday: null, special: null,
       chairman: "김현일 (anh Bảo)", talk: "정명훈 (anh Huân)", gems: "최재호 (anh Tín)", reading: "비디오 (Video)",
       fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: [] },
-    { month: 12, day: 22, weekday: "화요일", special: "한국어 순방",
+    { month: 12, day: 22, year: 2026, weekday: "화요일", special: "한국어 순방",
       chairman: "이주복 (anh Trung)", talk: "최찬 (anh Kiên)", gems: "김현일 (anh Bảo)", reading: "정명훈 (anh Huân)",
       fs4: ["오기숙(chị Lan)", "최혜린(chị Huệ Linh)"], fs5: ["한윤경(chị Thu Hằng)", "이선미(chị Trà My)"], fs6: ["최혜원(chị Huệ Nhi)", "김자영(chị Diễm My)"], fs7: [] },
-    { month: 12, day: 31, weekday: null, special: null,
+    { month: 12, day: 31, year: 2026, weekday: null, special: null,
       chairman: "정명훈 (anh Huân)", talk: "최재호 (anh Tín)", gems: "이주복 (anh Trung)", reading: "최찬 (anh Kiên)",
-      fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: [] }
+      fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: [] },
+    /* ---- 2027 주중 모임 계획 (Thursday) ---- */
+    {month: 1, day: 7, year: 2027, weekday: null, special: null, chairman: "최재호 (anh Tín)", talk: "이주복 (anh Trung)", gems: "정명훈 (anh Huân)", reading: "비디오 (Video)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 1, day: 14, year: 2027, weekday: null, special: null, chairman: "최찬 (anh Kiên)", talk: "김현일 (anh Bảo)", gems: "최재호 (anh Tín)", reading: "이주복 (anh Trung)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 1, day: 21, year: 2027, weekday: null, special: null, chairman: "이주복 (anh Trung)", talk: "정명훈 (anh Huân)", gems: "최찬 (anh Kiên)", reading: "비디오 (Video)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 1, day: 28, year: 2027, weekday: null, special: null, chairman: "김현일 (anh Bảo)", talk: "비디오 (Video)", gems: "이주복 (anh Trung)", reading: "최재호 (anh Tín)", fs4: ["정명훈(anh Huân)","최찬(anh Kiên)"], fs5: ["정수진(chị Thơm)","이윤서(chị Luyến)"], fs6: ["오기숙(chị Lan)","서민아(chị Hà)"], fs7: []},
+    {month: 2, day: 4, year: 2027, weekday: null, special: null, chairman: "정명훈 (anh Huân)", talk: "이주복 (anh Trung)", gems: "김현일 (anh Bảo)", reading: "비디오 (Video)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 2, day: 11, year: 2027, weekday: null, special: null, chairman: "최재호 (anh Tín)", talk: "비디오 (Video)", gems: "정명훈 (anh Huân)", reading: "김민우 (em Vũ)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 2, day: 18, year: 2027, weekday: null, special: null, chairman: "최찬 (anh Kiên)", talk: "정명훈 (anh Huân)", gems: "최재호 (anh Tín)", reading: "비디오 (Video)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 2, day: 25, year: 2027, weekday: null, special: null, chairman: "이주복 (anh Trung)", talk: "비디오 (Video)", gems: "최찬 (anh Kiên)", reading: "김현일 (anh Bảo)", fs4: ["정명훈(anh Huân)","최재호(anh Tín)"], fs5: ["김가영(chị Vân)","이선미(chị Trà My)"], fs6: ["김자영(chị Diễm My)","김수빈(chị Hồng)"], fs7: []},
+    {month: 3, day: 4, year: 2027, weekday: null, special: null, chairman: "김현일 (anh Bảo)", talk: "이주복 (anh Trung)", gems: "정명훈 (anh Huân)", reading: "비디오 (Video)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 3, day: 11, year: 2027, weekday: null, special: null, chairman: "정명훈 (anh Huân)", talk: "김현일 (anh Bảo)", gems: "이주복 (anh Trung)", reading: "최찬 (anh Kiên)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 3, day: 18, year: 2027, weekday: null, special: null, chairman: "최재호 (anh Tín)", talk: "최찬 (anh Kiên)", gems: "김현일 (anh Bảo)", reading: "비디오 (Video)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 3, day: 25, year: 2027, weekday: null, special: null, chairman: "최찬 (anh Kiên)", talk: "정명훈 (anh Huân)", gems: "최재호 (anh Tín)", reading: "이주복 (anh Trung)", fs4: ["김현일(anh Bảo)","최혜린(chị Huệ Linh)"], fs5: ["김가영(chị Vân)","정수진(chị Thơm)"], fs6: ["김자영(chị Diễm My)","이윤서(chị Luyến)"], fs7: []},
+    {month: 4, day: 1, year: 2027, weekday: null, special: null, chairman: "이주복 (anh Trung)", talk: "최재호 (anh Tín)", gems: "최찬 (anh Kiên)", reading: "비디오 (Video)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 4, day: 8, year: 2027, weekday: null, special: null, chairman: "김현일 (anh Bảo)", talk: "이주복 (anh Trung)", gems: "최재호 (anh Tín)", reading: "정명훈 (anh Huân)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 4, day: 15, year: 2027, weekday: null, special: null, chairman: "정명훈 (anh Huân)", talk: "비디오 (Video)", gems: "이주복 (anh Trung)", reading: "비디오 (Video)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 4, day: 22, year: 2027, weekday: null, special: null, chairman: "최재호 (anh Tín)", talk: "정명훈 (anh Huân)", gems: "김현일 (anh Bảo)", reading: "김민우 (em Vũ)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 4, day: 29, year: 2027, weekday: null, special: null, chairman: "최찬 (anh Kiên)", talk: "비디오 (Video)", gems: "정명훈 (anh Huân)", reading: "비디오 (Video)", fs4: ["최재호(anh Tín)","이주복(anh Trung)"], fs5: ["김수빈(chị Hồng)","정수진(chị Thơm)"], fs6: ["이윤서(chị Luyến)","최혜연(chị Hiền)"], fs7: []},
+    {month: 5, day: 6, year: 2027, weekday: null, special: null, chairman: "이주복 (anh Trung)", talk: "정명훈 (anh Huân)", gems: "최찬 (anh Kiên)", reading: "최재호 (anh Tín)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 5, day: 13, year: 2027, weekday: null, special: null, chairman: "김현일 (anh Bảo)", talk: "이주복 (anh Trung)", gems: "최재호 (anh Tín)", reading: "비디오 (Video)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 5, day: 20, year: 2027, weekday: null, special: null, chairman: "정명훈 (anh Huân)", talk: "김현일 (anh Bảo)", gems: "이주복 (anh Trung)", reading: "최찬 (anh Kiên)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 5, day: 27, year: 2027, weekday: null, special: null, chairman: "최재호 (anh Tín)", talk: "비디오 (Video)", gems: "김현일 (anh Bảo)", reading: "비디오 (Video)", fs4: ["최찬(anh Kiên)","이주복(anh Trung)"], fs5: ["오기숙(chị Lan)","한윤경(chị Thu Hằng)"], fs6: ["서민아(chị Hà)","이선미(chị Trà My)"], fs7: []},
+    {month: 6, day: 3, year: 2027, weekday: null, special: null, chairman: "최찬 (anh Kiên)", talk: "이주복 (anh Trung)", gems: "정명훈 (anh Huân)", reading: "김현일 (anh Bảo)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 6, day: 10, year: 2027, weekday: null, special: null, chairman: "이주복 (anh Trung)", talk: "정명훈 (anh Huân)", gems: "최찬 (anh Kiên)", reading: "비디오 (Video)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 6, day: 17, year: 2027, weekday: null, special: null, chairman: "김현일 (anh Bảo)", talk: "최찬 (anh Kiên)", gems: "최재호 (anh Tín)", reading: "이주복 (anh Trung)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 6, day: 24, year: 2027, weekday: null, special: null, chairman: "정명훈 (anh Huân)", talk: "비디오 (Video)", gems: "이주복 (anh Trung)", reading: "비디오 (Video)", fs4: ["최재호(anh Tín)","김현일(anh Bảo)"], fs5: ["김가영(chị Vân)","김수빈(chị Hồng)"], fs6: ["김자영(chị Diễm My)","정수진(chị Thơm)"], fs7: []},
+    {month: 7, day: 1, year: 2027, weekday: null, special: null, chairman: "최재호 (anh Tín)", talk: "이주복 (anh Trung)", gems: "김현일 (anh Bảo)", reading: "정명훈 (anh Huân)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 7, day: 8, year: 2027, weekday: null, special: null, chairman: "최찬 (anh Kiên)", talk: "최재호 (anh Tín)", gems: "정명훈 (anh Huân)", reading: "비디오 (Video)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 7, day: 15, year: 2027, weekday: null, special: null, chairman: "이주복 (anh Trung)", talk: "김현일 (anh Bảo)", gems: "최찬 (anh Kiên)", reading: "김민우 (em Vũ)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 7, day: 22, year: 2027, weekday: null, special: null, chairman: "김현일 (anh Bảo)", talk: "정명훈 (anh Huân)", gems: "최재호 (anh Tín)", reading: "비디오 (Video)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 7, day: 29, year: 2027, weekday: null, special: null, chairman: "정명훈 (anh Huân)", talk: "비디오 (Video)", gems: "이주복 (anh Trung)", reading: "최재호 (anh Tín)", fs4: ["김현일(anh Bảo)","최찬(anh Kiên)"], fs5: ["이윤서(chị Luyến)","최혜원(chị Huệ Nhi)"], fs6: ["최혜린(chị Huệ Linh)","최혜연(chị Hiền)"], fs7: []},
+    {month: 8, day: 5, year: 2027, weekday: null, special: null, chairman: "최재호 (anh Tín)", talk: "이주복 (anh Trung)", gems: "김현일 (anh Bảo)", reading: "비디오 (Video)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 8, day: 12, year: 2027, weekday: null, special: null, chairman: "최찬 (anh Kiên)", talk: "비디오 (Video)", gems: "정명훈 (anh Huân)", reading: "김현일 (anh Bảo)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 8, day: 19, year: 2027, weekday: null, special: null, chairman: "이주복 (anh Trung)", talk: "정명훈 (anh Huân)", gems: "최찬 (anh Kiên)", reading: "비디오 (Video)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 8, day: 26, year: 2027, weekday: null, special: null, chairman: "김현일 (anh Bảo)", talk: "비디오 (Video)", gems: "최재호 (anh Tín)", reading: "최찬 (anh Kiên)", fs4: ["정명훈(anh Huân)","이주복(anh Trung)"], fs5: ["오기숙(chị Lan)","이선미(chị Trà My)"], fs6: ["서민아(chị Hà)","한윤경(chị Thu Hằng)"], fs7: []},
+    {month: 9, day: 2, year: 2027, weekday: null, special: null, chairman: "정명훈 (anh Huân)", talk: "이주복 (anh Trung)", gems: "김현일 (anh Bảo)", reading: "비디오 (Video)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 9, day: 9, year: 2027, weekday: null, special: null, chairman: "최재호 (anh Tín)", talk: "김현일 (anh Bảo)", gems: "정명훈 (anh Huân)", reading: "이주복 (anh Trung)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 9, day: 16, year: 2027, weekday: null, special: null, chairman: "최찬 (anh Kiên)", talk: "정명훈 (anh Huân)", gems: "이주복 (anh Trung)", reading: "비디오 (Video)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 9, day: 23, year: 2027, weekday: null, special: null, chairman: "이주복 (anh Trung)", talk: "최찬 (anh Kiên)", gems: "최재호 (anh Tín)", reading: "정명훈 (anh Huân)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 9, day: 30, year: 2027, weekday: null, special: null, chairman: "김현일 (anh Bảo)", talk: "비디오 (Video)", gems: "최찬 (anh Kiên)", reading: "비디오 (Video)", fs4: ["정명훈(anh Huân)","김자영(chị Diễm My)"], fs5: ["김가영(chị Vân)","이윤서(chị Luyến)"], fs6: ["김수빈(chị Hồng)","최혜린(chị Huệ Linh)"], fs7: []},
+    {month: 10, day: 7, year: 2027, weekday: null, special: null, chairman: "정명훈 (anh Huân)", talk: "최재호 (anh Tín)", gems: "김현일 (anh Bảo)", reading: "김민우 (em Vũ)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 10, day: 14, year: 2027, weekday: null, special: null, chairman: "최재호 (anh Tín)", talk: "이주복 (anh Trung)", gems: "정명훈 (anh Huân)", reading: "비디오 (Video)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 10, day: 21, year: 2027, weekday: null, special: null, chairman: "최찬 (anh Kiên)", talk: "정명훈 (anh Huân)", gems: "이주복 (anh Trung)", reading: "최재호 (anh Tín)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 10, day: 28, year: 2027, weekday: null, special: null, chairman: "이주복 (anh Trung)", talk: "비디오 (Video)", gems: "최재호 (anh Tín)", reading: "비디오 (Video)", fs4: ["최찬(anh Kiên)","오기숙(chị Lan)"], fs5: ["정명훈(anh Huân)","김현일(anh Bảo)"], fs6: ["정수진(chị Thơm)","최혜원(chị Huệ Nhi)"], fs7: []},
+    {month: 11, day: 4, year: 2027, weekday: null, special: null, chairman: "김현일 (anh Bảo)", talk: "정명훈 (anh Huân)", gems: "이주복 (anh Trung)", reading: "최찬 (anh Kiên)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 11, day: 11, year: 2027, weekday: null, special: null, chairman: "정명훈 (anh Huân)", talk: "김현일 (anh Bảo)", gems: "최찬 (anh Kiên)", reading: "비디오 (Video)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 11, day: 18, year: 2027, weekday: null, special: null, chairman: "최재호 (anh Tín)", talk: "이주복 (anh Trung)", gems: "정명훈 (anh Huân)", reading: "김현일 (anh Bảo)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 11, day: 25, year: 2027, weekday: null, special: null, chairman: "최찬 (anh Kiên)", talk: "비디오 (Video)", gems: "김현일 (anh Bảo)", reading: "비디오 (Video)", fs4: ["최재호(anh Tín)","최혜연(chị Hiền)"], fs5: ["김수빈(chị Hồng)","이윤서(chị Luyến)"], fs6: ["김가영(chị Vân)","서민아(chị Hà)"], fs7: []},
+    {month: 12, day: 2, year: 2027, weekday: null, special: null, chairman: "이주복 (anh Trung)", talk: "정명훈 (anh Huân)", gems: "최재호 (anh Tín)", reading: "김민우 (em Vũ)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 12, day: 9, year: 2027, weekday: null, special: null, chairman: "김현일 (anh Bảo)", talk: "비디오 (Video)", gems: "이주복 (anh Trung)", reading: "비디오 (Video)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 12, day: 16, year: 2027, weekday: null, special: null, chairman: "정명훈 (anh Huân)", talk: "최찬 (anh Kiên)", gems: "김현일 (anh Bảo)", reading: "이주복 (anh Trung)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 12, day: 23, year: 2027, weekday: null, special: null, chairman: "최재호 (anh Tín)", talk: "이주복 (anh Trung)", gems: "최찬 (anh Kiên)", reading: "비디오 (Video)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
+    {month: 12, day: 30, year: 2027, weekday: null, special: null, chairman: "최찬 (anh Kiên)", talk: "비디오 (Video)", gems: "최재호 (anh Tín)", reading: "정명훈 (anh Huân)", fs4: ["이주복(anh Trung)","한윤경(chị Thu Hằng)"], fs5: ["김자영(chị Diễm My)","이선미(chị Trà My)"], fs6: ["정수진(chị Thơm)","최혜린(chị Huệ Linh)"], fs7: []}
   ];
 
   var WEEKEND_SCHEDULE = [
-    { month: 9, day: 27,
+    { month: 9, day: 27, year: 2026,
       chairman: "정명훈 (anh Huân)",
       talkLabel: "특별공개강연 · Bài giảng đặc biệt",
       talkKo: "성경이 당신에게 어떻게 도움이 됩니까?",
       talkVi: "Kinh Thánh có thể giúp quý vị như thế nào?",
       speaker: "김현일 (anh Bảo)",
       wtConductor: "이주복 (anh Trung)", wtReader: "최찬 (anh Kiên)", closing: "김현일 (anh Bảo)" },
-    { month: 10, day: 4,
+    { month: 10, day: 4, year: 2026,
       chairman: "이주복 (anh Trung)",
       talkKo: "(116) 친구를 지혜롭게 선택하라! (JW스트림)",
       talkVi: "(116) Hãy khéo chọn bạn bè!",
       speaker: "anh Tùng",
       wtConductor: "김현일 (anh Bảo)", wtReader: "최재호 (anh Tín)", closing: "최찬 (anh Kiên)" },
-    { month: 10, day: 11,
+    { month: 10, day: 11, year: 2026,
       chairman: "최찬 (anh Kiên)",
       talkKo: "미정 (JW스트림)",
       talkVi: "chưa biết",
       speaker: "미정 (chưa biết)",
       wtConductor: "김현일 (anh Bảo)", wtReader: "이주복 (anh Trung)", closing: "정명훈 (anh Huân)" },
     { month: 10, day: 18, year: 2026,
-      chairman: "정명훈 (anh Huân)",
-      talkKo: "미정 (JW스트림)",
-      talkVi: "chưa biết",
-      speaker: "미정 (chưa biết)",
-      wtConductor: "김현일 (anh Bảo)", wtReader: "최찬 (anh Kiên)", closing: "최재호 (anh Tín)" },
-    { month: 10, day: 25, year: 2026,
       chairman: "최재호 (anh Tín)",
-      talkKo: "미정 (JW스트림)",
-      talkVi: "chưa biết",
-      speaker: "미정 (chưa biết)",
-      wtConductor: "김현일 (anh Bảo)", wtReader: "정명훈 (anh Huân)", closing: "최찬 (anh Kiên)" },
-    { month: 11, day: 1, year: 2026,
-      chairman: "이주복 (anh Trung)",
-      talkKo: "미정 (JW스트림)",
-      talkVi: "chưa biết",
-      speaker: "미정 (chưa biết)",
-      wtConductor: "김현일 (anh Bảo)", wtReader: "최재호 (anh Tín)", closing: "정명훈 (anh Huân)" },
-    { month: 11, day: 8, year: 2026,
-      chairman: "최찬 (anh Kiên)",
-      talkKo: "미정 (JW스트림)",
-      talkVi: "chưa biết",
-      speaker: "미정 (chưa biết)",
-      wtConductor: "김현일 (anh Bảo)", wtReader: "이주복 (anh Trung)", closing: "최재호 (anh Tín)" },
-    { month: 11, day: 22, year: 2026,
-      chairman: "정명훈 (anh Huân)",
       talkKo: "미정 (JW스트림)",
       talkVi: "chưa biết",
       speaker: "미정 (chưa biết)",
       wtConductor: "김현일 (anh Bảo)", wtReader: "최찬 (anh Kiên)", closing: "이주복 (anh Trung)" },
+    { month: 10, day: 25, year: 2026,
+      chairman: "이주복 (anh Trung)",
+      talkKo: "미정 (JW스트림)",
+      talkVi: "chưa biết",
+      speaker: "미정 (chưa biết)",
+      wtConductor: "김현일 (anh Bảo)", wtReader: "정명훈 (anh Huân)", closing: "최재호 (anh Tín)" },
+    { month: 11, day: 1, year: 2026,
+      chairman: "최찬 (anh Kiên)",
+      talkKo: "미정 (JW스트림)",
+      talkVi: "chưa biết",
+      speaker: "미정 (chưa biết)",
+      wtConductor: "김현일 (anh Bảo)", wtReader: "이주복 (anh Trung)", closing: "정명훈 (anh Huân)" },
+    { month: 11, day: 8, year: 2026,
+      chairman: "정명훈 (anh Huân)",
+      talkKo: "미정 (JW스트림)",
+      talkVi: "chưa biết",
+      speaker: "미정 (chưa biết)",
+      wtConductor: "김현일 (anh Bảo)", wtReader: "최재호 (anh Tín)", closing: "최찬 (anh Kiên)" },
+    { month: 11, day: 22, year: 2026,
+      chairman: "최찬 (anh Kiên)",
+      talkKo: "미정 (JW스트림)",
+      talkVi: "chưa biết",
+      speaker: "미정 (chưa biết)",
+      wtConductor: "김현일 (anh Bảo)", wtReader: "이주복 (anh Trung)", closing: "정명훈 (anh Huân)" },
     { month: 11, day: 29, year: 2026,
-      chairman: "최재호 (anh Tín)",
+      chairman: "정명훈 (anh Huân)",
       talkKo: "미정 (JW스트림)",
       talkVi: "chưa biết",
       speaker: "최석천 (Giám thị vòng quanh)",
-      wtConductor: "김현일 (anh Bảo)", wtReader: "정명훈 (anh Huân)", closing: "최석천 (Giám thị vòng quanh)" },
+      wtConductor: "김현일 (anh Bảo)", wtReader: "낭독 없음 (Không đọc)", closing: "최석천 (Giám thị vòng quanh)" },
     { month: 12, day: 13, year: 2026,
       chairman: "이주복 (anh Trung)",
       talkKo: "미정 (JW스트림)",
@@ -577,7 +630,7 @@
     return td;
   }
 
-  function dateCell(row) {
+  function dateCell(row, kind) {
     var td = el("td", { className: "col-date" });
     var label = row.month + "월 " + row.day + "일";
     td.appendChild(document.createTextNode(label));
@@ -588,6 +641,9 @@
     if (row.special) {
       var note = el("strong", { className: "schedule-note", text: row.special });
       td.appendChild(note);
+    }
+    if (kind) {
+      td.appendChild(el("span", { className: "schedule-kind schedule-kind-" + kind, text: kind === "weekend" ? "주말" : "주중" }));
     }
     return td;
   }
@@ -603,9 +659,95 @@
     return data.filter(function (row) { return !isPastRow(row, today); });
   }
 
+  function rowDate(row, today) {
+    return new Date(row.year || today.getFullYear(), row.month - 1, row.day);
+  }
+
+  function mergeMeetings(weekday, weekend, today) {
+    var all = [];
+    weekday.forEach(function (row) { all.push({ kind: "weekday", row: row }); });
+    weekend.forEach(function (row) { all.push({ kind: "weekend", row: row }); });
+    all.forEach(function (item, index) {
+      item.time = rowDate(item.row, today).getTime();
+      item.order = index;
+    });
+    all.sort(function (a, b) { return a.time - b.time || a.order - b.order; });
+    return all;
+  }
+
+  function labelledCell(label, colspan) {
+    var td = el("td", { colspan: colspan });
+    td.appendChild(el("span", { className: "cell-label", text: label[0] }));
+    td.appendChild(el("span", { className: "cell-label cell-label-vi", text: label[1] }));
+    return td;
+  }
+
+  function weekendTalkCell(row) {
+    var td = labelledCell(["공개강연", "Bài diễn văn công cộng"], 3);
+    if (row.talkLabel) {
+      td.appendChild(el("strong", { className: "schedule-note", text: row.talkLabel }));
+    }
+    td.appendChild(document.createTextNode(row.talkKo));
+    td.appendChild(el("span", { className: "th-vi", text: row.talkVi }));
+    if (row.speaker) {
+      var speaker = el("span", { className: "talk-speaker" });
+      var pair = splitNamePair(row.speaker);
+      if (pair) {
+        speaker.appendChild(document.createTextNode("연사: " + pair.main));
+        speaker.appendChild(document.createElement("br"));
+        speaker.appendChild(el("span", { className: "name-sub", text: "Diễn giả: " + pair.sub }));
+      } else {
+        speaker.appendChild(el("span", { className: "name-sub", text: "Diễn giả: " + row.speaker }));
+      }
+      td.appendChild(speaker);
+    }
+    return td;
+  }
+
+  function labelledName(label, colspan, text) {
+    var td = labelledCell(label, colspan);
+    appendNameLines(td, text);
+    return td;
+  }
+
+  function appendWeekendRow(tr, row) {
+    tr.className = "row-weekend";
+    tr.appendChild(nameCell(row.chairman));
+    tr.appendChild(weekendTalkCell(row));
+    tr.appendChild(labelledName(["파수대 연구 사회", "Điều khiển bài học Tháp Canh"], 2, row.wtConductor));
+    tr.appendChild(labelledName(["파수대 연구 낭독", "Đọc bài học Tháp Canh"], 2, row.wtReader));
+    tr.appendChild(labelledName(["마치는 기도", "Cầu nguyện kết thúc"], 1, row.closing));
+  }
+
+  function appendWeekdayRow(tr, row) {
+    tr.className = "row-weekday";
+    if (row.event) {
+      var eventTd = el("td", { className: "schedule-event", colspan: 8 });
+      eventTd.appendChild(document.createTextNode(row.event));
+      if (row.eventVi) {
+        eventTd.appendChild(el("span", { className: "th-vi", text: row.eventVi }));
+      }
+      tr.appendChild(eventTd);
+      return;
+    }
+    tr.appendChild(nameCell(row.chairman));
+    tr.appendChild(nameCell(row.talk));
+    tr.appendChild(nameCell(row.gems));
+    tr.appendChild(nameCell(row.reading));
+    tr.appendChild(multiCell(row.fs4));
+    tr.appendChild(multiCell(row.fs5));
+    tr.appendChild(multiCell(row.fs6));
+    tr.appendChild(multiCell(row.fs7));
+  }
+
+  /* 주중 모임 + 주말 모임을 날짜순 하나의 표로 렌더링 */
   function renderTable(container, data) {
     if (!container) return;
-    data = filterUpcoming(data || getEffective());
+    var today = new Date();
+    today.setHours(0, 0, 0, 0);
+    var items = mergeMeetings(data || getEffective(), WEEKEND_SCHEDULE, today).filter(function (item) {
+      return item.time >= today.getTime();
+    });
     container.textContent = "";
 
     var wrapper = el("div", { className: "schedule-scroll" });
@@ -630,25 +772,13 @@
     table.appendChild(thead);
 
     var tbody = el("tbody");
-    data.forEach(function (row) {
+    items.forEach(function (item) {
       var tr = el("tr");
-      tr.appendChild(dateCell(row));
-      if (row.event) {
-        var eventTd = el("td", { className: "schedule-event", colspan: 8 });
-        eventTd.appendChild(document.createTextNode(row.event));
-        if (row.eventVi) {
-          eventTd.appendChild(el("span", { className: "th-vi", text: row.eventVi }));
-        }
-        tr.appendChild(eventTd);
+      tr.appendChild(dateCell(item.row, item.kind));
+      if (item.kind === "weekend") {
+        appendWeekendRow(tr, item.row);
       } else {
-        tr.appendChild(nameCell(row.chairman));
-        tr.appendChild(nameCell(row.talk));
-        tr.appendChild(nameCell(row.gems));
-        tr.appendChild(nameCell(row.reading));
-        tr.appendChild(multiCell(row.fs4));
-        tr.appendChild(multiCell(row.fs5));
-        tr.appendChild(multiCell(row.fs6));
-        tr.appendChild(multiCell(row.fs7));
+        appendWeekdayRow(tr, item.row);
       }
       tbody.appendChild(tr);
     });
@@ -658,68 +788,8 @@
     container.appendChild(wrapper);
   }
 
-  function weekendTalkCell(row) {
-    var td = el("td");
-    if (row.talkLabel) {
-      td.appendChild(el("strong", { className: "schedule-note", text: row.talkLabel }));
-    }
-    td.appendChild(document.createTextNode(row.talkKo));
-    td.appendChild(el("span", { className: "th-vi", text: row.talkVi }));
-    if (row.speaker) {
-      var speaker = el("span", { className: "talk-speaker" });
-      var pair = splitNamePair(row.speaker);
-      if (pair) {
-        speaker.appendChild(document.createTextNode("연사: " + pair.main));
-        speaker.appendChild(document.createElement("br"));
-        speaker.appendChild(el("span", { className: "name-sub", text: "Diễn giả: " + pair.sub }));
-      } else {
-        speaker.appendChild(el("span", { className: "name-sub", text: "Diễn giả: " + row.speaker }));
-      }
-      td.appendChild(speaker);
-    }
-    return td;
-  }
-
-  function renderWeekendTable(container, data) {
-    if (!container) return;
-    data = filterUpcoming(data || WEEKEND_SCHEDULE);
-    container.textContent = "";
-    if (!data.length) return;
-
-    var wrapper = el("div", { className: "schedule-scroll" });
-    var table = el("table", { className: "schedule-table schedule-weekend" });
-
-    var thead = el("thead");
-    var tr = el("tr");
-    tr.appendChild(headerCell("th", ["날짜", "Ngày"], { className: "col-date" }));
-    tr.appendChild(headerCell("th", ["사회 및 시작 기도", "Chủ tọa và cầu nguyện bắt đầu"], { className: "group-treasure" }));
-    tr.appendChild(headerCell("th", ["공개강연", "Bài diễn văn công cộng"], { className: "group-treasure" }));
-    tr.appendChild(headerCell("th", ["파수대 연구 사회", "Điều khiển bài học Tháp Canh"], { className: "group-fs" }));
-    tr.appendChild(headerCell("th", ["파수대 연구 낭독", "Đọc bài học Tháp Canh"], { className: "group-fs" }));
-    tr.appendChild(headerCell("th", ["마치는 기도", "Cầu nguyện kết thúc"], { className: "group-treasure" }));
-    thead.appendChild(tr);
-    table.appendChild(thead);
-
-    var tbody = el("tbody");
-    data.forEach(function (row) {
-      var trow = el("tr");
-      trow.appendChild(dateCell(row));
-      trow.appendChild(nameCell(row.chairman));
-      trow.appendChild(weekendTalkCell(row));
-      trow.appendChild(nameCell(row.wtConductor));
-      trow.appendChild(nameCell(row.wtReader));
-      trow.appendChild(nameCell(row.closing));
-      tbody.appendChild(trow);
-    });
-    table.appendChild(tbody);
-
-    wrapper.appendChild(table);
-    container.appendChild(wrapper);
-  }
-
   global.NhomSchedule = {
     WEEKEND_SCHEDULE: WEEKEND_SCHEDULE,
-    renderWeekendTable: renderWeekendTable,
     DEFAULT_SCHEDULE: DEFAULT_SCHEDULE,
     getEffective: getEffective,
     isOverridden: isOverridden,
