@@ -406,6 +406,13 @@ main {
   font-size: 0.82em;
 }
 
+.cell-note {
+  display: block;
+  margin-top: 0.2em;
+  font-size: 0.75em;
+  color: var(--color-text-secondary);
+}
+
 .cell-label-vi {
   font-weight: 400;
   margin-bottom: 0.3em;

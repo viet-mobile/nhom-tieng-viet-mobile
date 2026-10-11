@@ -185,7 +185,7 @@
       talkKo: "미정 (JW스트림)",
       talkVi: "chưa biết",
       speaker: "최석천 (Giám thị vòng quanh)",
-      wtConductor: "김현일 (Bảo)", wtReader: "낭독 없음 (Không đọc)", closing: "최석천 (Giám thị vòng quanh)" },
+      wtConductor: "김현일 (Bảo)", wtReader: "", wtReaderCustom: ["봉강", "Bài giảng công tác"], wtNote: "낭독 없음 Không đọc bài", closing: "최석천 (Giám thị vòng quanh)" },
     { month: 12, day: 13, year: 2026,
       chairman: "이주복 (Trung)",
       talkKo: "미정 (JW스트림)",
@@ -203,7 +203,7 @@
       talkKo: "미정 (JW스트림)",
       talkVi: "chưa biết",
       speaker: "김명건 (Giám thị vòng quanh)",
-      wtConductor: "김현일 (Bảo)", wtReader: "낭독 없음, 30분 문답식 (Không đọc, hỏi đáp 30 phút)", closing: "김명건 (Giám thị vòng quanh)" },
+      wtConductor: "김현일 (Bảo)", wtReader: "", wtReaderCustom: ["봉강", "Bài giảng công tác"], wtNote: "낭독 없음 Không đọc bài", closing: "김명건 (Giám thị vòng quanh)" },
     { month: 1, day: 3, year: 2027,
       chairman: "최재호 (Tín)",
       talkLabel: "베트남어 공개강연 · Bài giảng công cộng tiếng Việt",
@@ -734,8 +734,9 @@
   }
 
   /* 이름표 한 줄("파수대 Tháp Canh") + 이름 한 줄("김현일 Bảo") */
-  function labelledName(label, colspan, text) {
+  function labelledName(label, colspan, text, note) {
     var td = el("td", { colspan: colspan, className: "cell-weekend" });
+    if (!text) return td; /* 낭독자 없음: 빈칸 */
     td.appendChild(el("span", { className: "cell-label", text: label[0] + " " + label[1] }));
     var pair = splitNamePair(text);
     if (pair) {
@@ -744,6 +745,9 @@
     } else {
       td.appendChild(document.createTextNode(text));
     }
+    if (note) {
+      td.appendChild(el("span", { className: "cell-note", text: note }));
+    }
     return td;
   }
 
@@ -751,8 +755,16 @@
     tr.className = "row-weekend";
     tr.appendChild(nameCell(row.chairman));
     tr.appendChild(weekendTalkCell(row));
-    tr.appendChild(labelledName(["파수대", "Tháp Canh"], 2, row.wtConductor));
-    tr.appendChild(labelledName(["낭독", "Đọc bài"], 2, row.wtReader));
+    tr.appendChild(labelledName(["파수대", "Tháp Canh"], 2, row.wtConductor, row.wtNote));
+    if (row.wtReaderCustom) {
+      /* 낭독 대신 다른 순서(예: 봉강)를 표시 */
+      var custom = el("td", { colspan: 2, className: "cell-weekend" });
+      custom.appendChild(document.createTextNode(row.wtReaderCustom[0]));
+      custom.appendChild(el("span", { className: "th-vi", text: row.wtReaderCustom[1] }));
+      tr.appendChild(custom);
+    } else {
+      tr.appendChild(labelledName(["낭독", "Đọc bài"], 2, row.wtReader));
+    }
     tr.appendChild(nameCell(row.closing));
   }
 
