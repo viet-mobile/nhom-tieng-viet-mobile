@@ -368,8 +368,17 @@ main {
   margin-top: 0.15em;
 }
 
-.schedule-table tbody tr.row-weekend {
-  background: rgba(160, 205, 230, 0.16);
+/* 임명 칸 색: 주중 = 머리글 색의 파스텔, 주말 = 주황 파스텔 (날짜·사회 및 기도·기도 칸은 흰색) */
+.schedule-table td.cell-treasure {
+  background: rgba(160, 205, 230, 0.25);
+}
+
+.schedule-table td.cell-fs {
+  background: rgba(247, 224, 150, 0.3);
+}
+
+.schedule-table td.cell-weekend {
+  background: rgba(255, 204, 153, 0.35);
 }
 
 .schedule-kind {

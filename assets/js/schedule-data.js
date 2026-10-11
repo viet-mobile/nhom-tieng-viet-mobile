@@ -612,14 +612,14 @@
     container.appendChild(el("span", { className: "name-sub", text: pair.sub }));
   }
 
-  function nameCell(text) {
-    var td = el("td");
+  function nameCell(text, className) {
+    var td = el("td", { className: className });
     appendNameLines(td, text);
     return td;
   }
 
   function multiCell(list) {
-    var td = el("td", { className: "col-fs" });
+    var td = el("td", { className: "col-fs cell-fs" });
     if (!list || !list.length) {
       td.appendChild(el("span", { className: "schedule-dash", text: "–" }));
       return td;
@@ -700,13 +700,14 @@
     if (!speakerKnown) {
       /* 연사 미정: 이름표 "공개강연 (JW스트림)"만 표시 */
       var pending = labelledCell(["공개강연 (JW스트림)", "Bài giảng công cộng"], 3);
+      pending.className = "cell-weekend";
       if (row.talkLabel) {
         pending.appendChild(el("strong", { className: "schedule-note", text: row.talkLabel }));
       }
       return pending;
     }
     /* 연사 확정: "공개강연 Bài giảng công cộng (번호) 제목" 한 줄 + 베트남어 제목 + 연사 */
-    var td = el("td", { colspan: 3 });
+    var td = el("td", { colspan: 3, className: "cell-weekend" });
     td.appendChild(el("span", { className: "cell-label cell-label-inline", text: "공개강연 Bài giảng công cộng" }));
     if (!isUndecided(row.talkKo)) {
       td.appendChild(document.createTextNode(" " + row.talkKo));
@@ -734,7 +735,7 @@
 
   /* 이름표 한 줄("파수대 Tháp Canh") + 이름 한 줄("김현일 Bảo") */
   function labelledName(label, colspan, text) {
-    var td = el("td", { colspan: colspan });
+    var td = el("td", { colspan: colspan, className: "cell-weekend" });
     td.appendChild(el("span", { className: "cell-label", text: label[0] + " " + label[1] }));
     var pair = splitNamePair(text);
     if (pair) {
@@ -767,9 +768,9 @@
       return;
     }
     tr.appendChild(nameCell(row.chairman));
-    tr.appendChild(nameCell(row.talk));
-    tr.appendChild(nameCell(row.gems));
-    tr.appendChild(nameCell(row.reading));
+    tr.appendChild(nameCell(row.talk, "cell-treasure"));
+    tr.appendChild(nameCell(row.gems, "cell-treasure"));
+    tr.appendChild(nameCell(row.reading, "cell-treasure"));
     tr.appendChild(multiCell(row.fs4));
     tr.appendChild(multiCell(row.fs5));
     tr.appendChild(multiCell(row.fs6));
