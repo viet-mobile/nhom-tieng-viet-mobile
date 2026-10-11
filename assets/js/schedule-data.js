@@ -185,7 +185,7 @@
       talkKo: "미정 (JW스트림)",
       talkVi: "chưa biết",
       speaker: "최석천 (Giám thị vòng quanh)",
-      wtConductor: "김현일 (Bảo)", wtReader: "", wtReaderCustom: ["봉강", "Bài giảng công tác"], wtNote: "낭독 없음 Không đọc bài", closing: "최석천 (Giám thị vòng quanh)" },
+      wtConductor: "김현일 (Bảo)", wtReader: "", wtReaderCustom: ["봉강", "Bài giảng công tác"], wtNote: "낭독 없음\nKhông đọc bài", closing: "최석천 (Giám thị vòng quanh)" },
     { month: 12, day: 13, year: 2026,
       chairman: "이주복 (Trung)",
       talkKo: "미정 (JW스트림)",
@@ -203,7 +203,7 @@
       talkKo: "미정 (JW스트림)",
       talkVi: "chưa biết",
       speaker: "김명건 (Giám thị vòng quanh)",
-      wtConductor: "김현일 (Bảo)", wtReader: "", wtReaderCustom: ["봉강", "Bài giảng công tác"], wtNote: "낭독 없음 Không đọc bài", closing: "김명건 (Giám thị vòng quanh)" },
+      wtConductor: "김현일 (Bảo)", wtReader: "", wtReaderCustom: ["봉강", "Bài giảng công tác"], wtNote: "낭독 없음\nKhông đọc bài", closing: "김명건 (Giám thị vòng quanh)" },
     { month: 1, day: 3, year: 2027,
       chairman: "최재호 (Tín)",
       talkLabel: "베트남어 공개강연 · Bài giảng công cộng tiếng Việt",
@@ -737,7 +737,9 @@
   function labelledName(label, colspan, text, note) {
     var td = el("td", { colspan: colspan, className: "cell-weekend" });
     if (!text) return td; /* 낭독자 없음: 빈칸 */
-    td.appendChild(el("span", { className: "cell-label", text: label[0] + " " + label[1] }));
+    var labelEl = el("span", { className: "cell-label" });
+    appendLines(labelEl, label[0] + "\n" + label[1]);
+    td.appendChild(labelEl);
     var pair = splitNamePair(text);
     if (pair) {
       td.appendChild(document.createTextNode(pair.main + " "));
@@ -746,7 +748,9 @@
       td.appendChild(document.createTextNode(text));
     }
     if (note) {
-      td.appendChild(el("span", { className: "cell-note", text: note }));
+      var noteEl = el("span", { className: "cell-note" });
+      appendLines(noteEl, note);
+      td.appendChild(noteEl);
     }
     return td;
   }
