@@ -87,7 +87,7 @@
     {month: 3, day: 4, year: 2027, weekday: null, special: null, chairman: "김현일 (Bảo)", talk: "이주복 (Trung)", gems: "정명훈 (Huân)", reading: "비디오 (Video)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
     {month: 3, day: 11, year: 2027, weekday: null, special: null, chairman: "정명훈 (Huân)", talk: "김현일 (Bảo)", gems: "이주복 (Trung)", reading: "최찬 (Kiên)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
     {month: 3, day: 18, year: 2027, weekday: null, special: null, chairman: "최재호 (Tín)", talk: "최찬 (Kiên)", gems: "정명훈 (Huân)", reading: "비디오 (Video)", fs4: ["김현일(Bảo)", "최혜린(Linh)"], fs5: ["김가영(Vân)", "정수진(Thơm)"], fs6: ["김자영(Diễm My)", "이윤서(Luyến)"], fs7: []},
-    { month: 3, day: 22, year: 2027, weekday: "월요일", special: null,
+    { month: 3, day: 22, year: 2027, weekday: "월요일", special: null, eventViFirst: true,
       event: "예수 그리스도의 죽음의 기념식\n사회: 김현일 (Bảo) · 연사: 정명훈 (Huân)\n연제: 하느님과 그리스도께서 당신을 위해 하신 일에 감사를 나타내십시오!\n빵 기도: 최재호 (Tín) · 포도주 기도: 이주복 (Trung) · 마치는 기도: 정명훈 (Huân)",
       eventVi: "Lễ Tưởng Niệm sự hy sinh của Chúa Giê-su\nChủ tọa: Bảo · Diễn giả: Huân\nBài giảng: Hãy biết ơn điều Đức Chúa Trời và Đấng Ki-tô đã làm cho bạn!\nCầu nguyện về bánh: Tín · Cầu nguyện về rượu nho: Trung · Cầu nguyện kết thúc: Huân" },
     { month: 3, day: 25, year: 2027, weekday: null, special: null,
@@ -272,7 +272,7 @@
       wtConductor: "김현일 (Bảo)", wtReader: "최재호 (Tín)", closing: "최찬 (Kiên)" },
     { month: 3, day: 14, year: 2027,
       chairman: "최찬 (Kiên)",
-      talkLabel: "특별공개강연 · Bài giảng đặc biệt",
+      talkLabel: "특별공개강연 · Bài giảng đặc biệt", talkVietnamese: true,
       talkKo: "두려움이 없는 세상 — 가능합니까?",
       talkVi: "Liệu có thể sống trong thế giới mà không còn sợ hãi?",
       speaker: "이주복 (Trung)",
@@ -713,17 +713,26 @@
     }
     /* 연사 확정: "공개강연 Bài giảng công cộng (번호) 제목" 한 줄 + 베트남어 제목 + 연사 */
     var td = el("td", { colspan: 3, className: "cell-weekend" });
-    td.appendChild(el("span", { className: "cell-label cell-label-inline", text: "공개강연 Bài giảng công cộng" }));
-    if (!isUndecided(row.talkKo)) {
-      td.appendChild(document.createTextNode(" " + row.talkKo));
-    }
-    if (row.talkLabel) {
-      td.appendChild(el("strong", { className: "schedule-note", text: row.talkLabel }));
-    }
-    if (!isUndecided(row.talkVi)) {
-      /* 번호는 첫 줄에 이미 표시되므로 베트남어 제목에서는 뺀다 */
-      var viTitle = row.talkVi.replace(/^\(\d+\)\s*/, "");
-      td.appendChild(el("span", { className: "th-vi", text: viTitle }));
+    if (row.talkVietnamese) {
+      /* 베트남어 특별강연: 이름표를 talkLabel로 바꾸고 베트남어 제목을 위(본문), 한국어 부제를 아래에 표시 */
+      td.appendChild(el("span", { className: "cell-label", text: row.talkLabel }));
+      td.appendChild(document.createTextNode(row.talkVi));
+      if (!isUndecided(row.talkKo)) {
+        td.appendChild(el("span", { className: "th-vi", text: row.talkKo }));
+      }
+    } else {
+      td.appendChild(el("span", { className: "cell-label cell-label-inline", text: "공개강연 Bài giảng công cộng" }));
+      if (!isUndecided(row.talkKo)) {
+        td.appendChild(document.createTextNode(" " + row.talkKo));
+      }
+      if (row.talkLabel) {
+        td.appendChild(el("strong", { className: "schedule-note", text: row.talkLabel }));
+      }
+      if (!isUndecided(row.talkVi)) {
+        /* 번호는 첫 줄에 이미 표시되므로 베트남어 제목에서는 뺀다 */
+        var viTitle = row.talkVi.replace(/^\(\d+\)\s*/, "");
+        td.appendChild(el("span", { className: "th-vi", text: viTitle }));
+      }
     }
     var speaker = el("span", { className: "talk-speaker" });
     var pair = splitNamePair(row.speaker);
@@ -781,11 +790,19 @@
     tr.className = "row-weekday";
     if (row.event) {
       var eventTd = el("td", { className: "schedule-event", colspan: 9 });
-      appendLines(eventTd, row.event);
-      if (row.eventVi) {
-        var viEl = el("span", { className: "th-vi" });
-        appendLines(viEl, row.eventVi);
-        eventTd.appendChild(viEl);
+      if (row.eventViFirst && row.eventVi) {
+        /* 베트남어를 본문 글씨(위), 한국어를 보조 글씨(아래)로 */
+        appendLines(eventTd, row.eventVi);
+        var koEl = el("span", { className: "th-vi" });
+        appendLines(koEl, row.event);
+        eventTd.appendChild(koEl);
+      } else {
+        appendLines(eventTd, row.event);
+        if (row.eventVi) {
+          var viEl = el("span", { className: "th-vi" });
+          appendLines(viEl, row.eventVi);
+          eventTd.appendChild(viEl);
+        }
       }
       tr.appendChild(eventTd);
       return;
