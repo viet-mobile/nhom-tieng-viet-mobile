@@ -688,20 +688,27 @@
 
   function weekendTalkCell(row) {
     var speakerKnown = !isUndecided(row.speaker);
-    var td = labelledCell([speakerKnown ? "공개강연" : "공개강연 (JW스트림)", "Bài diễn văn công cộng"], 3);
+    if (!speakerKnown) {
+      /* 연사 미정: 이름표 "공개강연 (JW스트림)"만 표시 */
+      var pending = labelledCell(["공개강연 (JW스트림)", "Bài diễn văn công cộng"], 3);
+      if (row.talkLabel) {
+        pending.appendChild(el("strong", { className: "schedule-note", text: row.talkLabel }));
+      }
+      return pending;
+    }
+    /* 연사 확정: "공개강연 Bài diễn văn công cộng (번호) 제목" 한 줄 + 베트남어 제목 + 연사 */
+    var td = el("td", { colspan: 3 });
+    td.appendChild(el("span", { className: "cell-label cell-label-inline", text: "공개강연 Bài diễn văn công cộng" }));
+    if (!isUndecided(row.talkKo)) {
+      td.appendChild(document.createTextNode(" " + row.talkKo));
+    }
     if (row.talkLabel) {
       td.appendChild(el("strong", { className: "schedule-note", text: row.talkLabel }));
     }
-    if (!speakerKnown) {
-      /* 연사 미정: 이름표 "공개강연 (JW스트림)"만 표시 */
-      return td;
-    }
-    /* 연사 확정: 제목이 미정이면 해당 줄(한국어/베트남어)을 숨김 */
-    if (!isUndecided(row.talkKo)) {
-      td.appendChild(document.createTextNode(row.talkKo));
-    }
     if (!isUndecided(row.talkVi)) {
-      td.appendChild(el("span", { className: "th-vi", text: row.talkVi }));
+      /* 번호는 첫 줄에 이미 표시되므로 베트남어 제목에서는 뺀다 */
+      var viTitle = row.talkVi.replace(/^\(\d+\)\s*/, "");
+      td.appendChild(el("span", { className: "th-vi", text: viTitle }));
     }
     var speaker = el("span", { className: "talk-speaker" });
     var pair = splitNamePair(row.speaker);
@@ -726,7 +733,7 @@
     tr.className = "row-weekend";
     tr.appendChild(nameCell(row.chairman));
     tr.appendChild(weekendTalkCell(row));
-    tr.appendChild(labelledName(["파수대 연구", "Bài học Tháp Canh"], 2, row.wtConductor));
+    tr.appendChild(labelledName(["파수대", "Tháp Canh"], 2, row.wtConductor));
     tr.appendChild(labelledName(["낭독", "Đọc bài"], 2, row.wtReader));
     tr.appendChild(labelledName(["기도", "Cầu nguyện"], 1, row.closing));
   }

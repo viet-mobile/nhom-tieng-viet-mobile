@@ -381,6 +381,11 @@ main {
   color: var(--color-text-secondary);
 }
 
+.cell-label-inline {
+  display: inline;
+  font-size: 0.82em;
+}
+
 .cell-label-vi {
   font-weight: 400;
   margin-bottom: 0.3em;
