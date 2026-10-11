@@ -698,15 +698,15 @@
     var speakerKnown = !isUndecided(row.speaker);
     if (!speakerKnown) {
       /* 연사 미정: 이름표 "공개강연 (JW스트림)"만 표시 */
-      var pending = labelledCell(["공개강연 (JW스트림)", "Bài diễn văn công cộng"], 3);
+      var pending = labelledCell(["공개강연 (JW스트림)", "Bài giảng công cộng"], 3);
       if (row.talkLabel) {
         pending.appendChild(el("strong", { className: "schedule-note", text: row.talkLabel }));
       }
       return pending;
     }
-    /* 연사 확정: "공개강연 Bài diễn văn công cộng (번호) 제목" 한 줄 + 베트남어 제목 + 연사 */
+    /* 연사 확정: "공개강연 Bài giảng công cộng (번호) 제목" 한 줄 + 베트남어 제목 + 연사 */
     var td = el("td", { colspan: 3 });
-    td.appendChild(el("span", { className: "cell-label cell-label-inline", text: "공개강연 Bài diễn văn công cộng" }));
+    td.appendChild(el("span", { className: "cell-label cell-label-inline", text: "공개강연 Bài giảng công cộng" }));
     if (!isUndecided(row.talkKo)) {
       td.appendChild(document.createTextNode(" " + row.talkKo));
     }
