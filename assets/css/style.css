@@ -321,7 +321,7 @@ main {
 .schedule-table {
   border-collapse: collapse;
   width: 100%;
-  min-width: 640px;
+  min-width: 1000px;
   font-size: 0.88rem;
   background: var(--color-surface);
 }
@@ -340,6 +340,11 @@ main {
 
 .schedule-table thead th.group-treasure {
   background: var(--c7);
+}
+
+/* 공개강연 칸(3열 병합)이 넓어지도록 성경에 담긴 보물 열의 최소 폭 확보 */
+.schedule-table thead tr:nth-child(2) th.group-treasure {
+  min-width: 9em;
 }
 
 .schedule-table thead th.group-fs {
