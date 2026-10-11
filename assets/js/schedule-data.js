@@ -640,8 +640,9 @@
 
   function dateCell(row, kind) {
     var td = el("td", { className: "col-date" });
-    var label = row.month + "월 " + row.day + "일";
-    td.appendChild(document.createTextNode(label));
+    td.appendChild(document.createTextNode(row.month + "월"));
+    td.appendChild(document.createElement("br"));
+    td.appendChild(document.createTextNode(row.day + "일"));
     if (row.weekday) {
       td.appendChild(document.createElement("br"));
       td.appendChild(document.createTextNode(row.weekday));
@@ -731,9 +732,17 @@
     return td;
   }
 
+  /* 이름표 한 줄("파수대 Tháp Canh") + 이름 한 줄("김현일 Bảo") */
   function labelledName(label, colspan, text) {
-    var td = labelledCell(label, colspan);
-    appendNameLines(td, text);
+    var td = el("td", { colspan: colspan });
+    td.appendChild(el("span", { className: "cell-label", text: label[0] + " " + label[1] }));
+    var pair = splitNamePair(text);
+    if (pair) {
+      td.appendChild(document.createTextNode(pair.main + " "));
+      td.appendChild(el("span", { className: "name-sub", text: pair.sub }));
+    } else {
+      td.appendChild(document.createTextNode(text));
+    }
     return td;
   }
 

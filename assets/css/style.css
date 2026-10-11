@@ -365,8 +365,9 @@ main {
 }
 
 .schedule-kind {
-  display: inline-block;
-  margin-top: 0.25em;
+  display: block;
+  width: fit-content;
+  margin: 0.25em auto 0;
   padding: 0 0.5em;
   border-radius: 999px;
   font-size: 0.75em;
@@ -392,9 +393,20 @@ main {
   margin-bottom: 0.3em;
 }
 
+.schedule-table td.col-date,
+.schedule-table th.col-date {
+  width: 1%;
+  padding-left: 0.4em;
+  padding-right: 0.4em;
+}
+
 .schedule-table td.col-date {
   font-weight: 600;
   white-space: nowrap;
+}
+
+.schedule-table td.col-date .schedule-note {
+  white-space: normal;
 }
 
 .schedule-note {
