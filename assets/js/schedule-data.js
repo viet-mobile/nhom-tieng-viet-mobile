@@ -146,13 +146,13 @@
       wtConductor: "김현일 (Bảo)", wtReader: "최재호 (Tín)", closing: "최찬 (Kiên)" },
     { month: 10, day: 11, year: 2026,
       chairman: "최찬 (Kiên)",
-      talkKo: "(111) (JW스트림)",
+      talkKo: "",
       talkVi: "(111) Sự chữa lành hoàn toàn cho nhân loại—Như thế nào?",
       speaker: "Khanh",
       wtConductor: "김현일 (Bảo)", wtReader: "이주복 (Trung)", closing: "정명훈 (Huân)" },
     { month: 10, day: 18, year: 2026,
       chairman: "최재호 (Tín)",
-      talkKo: "(131) (JW스트림)",
+      talkKo: "",
       talkVi: "(131) Hãy đứng vững trước Ác Quỷ",
       speaker: "Tín",
       wtConductor: "김현일 (Bảo)", wtReader: "최찬 (Kiên)", closing: "이주복 (Trung)" },
@@ -573,13 +573,21 @@
     return node;
   }
 
+  function appendLines(node, text) {
+    text.split("\n").forEach(function (part, index) {
+      if (index > 0) node.appendChild(document.createElement("br"));
+      node.appendChild(document.createTextNode(part));
+    });
+  }
+
   function headerCell(tag, lines, opts) {
     var th = el(tag, opts);
     lines.forEach(function (line, index) {
       if (index === 0) {
-        th.appendChild(document.createTextNode(line));
+        appendLines(th, line);
       } else {
-        var span = el("span", { className: "th-vi", text: line });
+        var span = el("span", { className: "th-vi" });
+        appendLines(span, line);
         th.appendChild(span);
       }
     });
@@ -611,7 +619,7 @@
   }
 
   function multiCell(list) {
-    var td = el("td");
+    var td = el("td", { className: "col-fs" });
     if (!list || !list.length) {
       td.appendChild(el("span", { className: "schedule-dash", text: "–" }));
       return td;
@@ -775,15 +783,15 @@
     var thead = el("thead");
     var tr1 = el("tr");
     tr1.appendChild(headerCell("th", ["날짜", "Ngày"], { rowspan: 2, className: "col-date" }));
-    tr1.appendChild(headerCell("th", ["사회자/시작기도", "Chủ tọa/cầu nguyện đầu"], { rowspan: 2, className: "col-chair" }));
+    tr1.appendChild(headerCell("th", ["사회자 및\n시작기도", "Chủ tọa và\ncầu nguyện"], { rowspan: 2, className: "col-chair" }));
     tr1.appendChild(headerCell("th", ["성경에 담긴 보물", "KHO BÁU TỪ KINH THÁNH"], { colspan: 3, className: "group-treasure" }));
     tr1.appendChild(headerCell("th", ["야외 봉사에 힘쓰십시오", "CẢI THIỆN THÁNH CHỨC"], { colspan: 4, className: "group-fs" }));
     thead.appendChild(tr1);
 
     var tr2 = el("tr");
     tr2.appendChild(headerCell("th", ["연설", "Bài giảng"], { className: "group-treasure" }));
-    tr2.appendChild(headerCell("th", ["보물 찾기", "Viên ngọc"], { className: "group-treasure" }));
-    tr2.appendChild(headerCell("th", ["성경낭독", "Đọc KT"], { className: "group-treasure" }));
+    tr2.appendChild(headerCell("th", ["보물\n찾기", "Viên ngọc"], { className: "group-treasure" }));
+    tr2.appendChild(headerCell("th", ["성경\n낭독", "Đọc KT"], { className: "group-treasure" }));
     ["4", "5", "6", "7"].forEach(function (n) {
       tr2.appendChild(headerCell("th", [n], { className: "group-fs" }));
     });

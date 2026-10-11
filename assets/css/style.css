@@ -419,6 +419,11 @@ main {
   margin-top: 0.4em;
 }
 
+.schedule-table td.col-fs {
+  min-width: 5em;
+  white-space: nowrap;
+}
+
 .schedule-multi span {
   display: block;
 }
