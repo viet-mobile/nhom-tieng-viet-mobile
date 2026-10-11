@@ -211,7 +211,6 @@
       wtConductor: "김현일 (Bảo)", wtReader: "", wtReaderCustom: ["봉강", "Bài giảng công tác"], wtNote: "낭독 없음\nKhông đọc bài", closing: "김명건 (Giám thị vòng quanh)" },
     { month: 1, day: 3, year: 2027,
       chairman: "최재호 (Tín)",
-      talkLabel: "베트남어 공개강연 · Bài giảng công cộng tiếng Việt",
       talkKo: "미정",
       talkVi: "chưa biết",
       speaker: "정명훈 (Huân)",
@@ -315,7 +314,6 @@
       wtConductor: "김현일 (Bảo)", wtReader: "최찬 (Kiên)", closing: "이주복 (Trung)" },
     { month: 5, day: 2, year: 2027,
       chairman: "최찬 (Kiên)",
-      talkLabel: "베트남어 공개강연 · Bài giảng công cộng tiếng Việt",
       talkKo: "미정",
       talkVi: "chưa biết",
       speaker: "김현일 (Bảo)",
@@ -369,10 +367,9 @@
       speaker: "미정 (chưa biết)",
       wtConductor: "김현일 (Bảo)", wtReader: "정명훈 (Huân)", closing: "이주복 (Trung)" },
     { month: 7, day: 4, year: 2027,
-      chairman: "이주복 (Trung)",
-      talkLabel: "베트남어 공개강연 · Bài giảng công cộng tiếng Việt",
-      talkKo: "미정",
-      talkVi: "chưa biết",
+      chairman: "이주복 (Trung)", talkVietnamese: true,
+      talkKo: "오늘날의 문제들에 대처하는 데 성서 원칙이 도움이 되는가?",
+      talkVi: "Nguyên tắc Kinh Thánh có thể giúp chúng ta đối phó với các vấn đề ngày nay không?",
       speaker: "최재호 (Tín)",
       wtConductor: "김현일 (Bảo)", wtReader: "최찬 (Kiên)", closing: "최재호 (Tín)" },
     { month: 7, day: 11, year: 2027,
@@ -425,7 +422,6 @@
       wtConductor: "김현일 (Bảo)", wtReader: "최찬 (Kiên)", closing: "정명훈 (Huân)" },
     { month: 9, day: 5, year: 2027,
       chairman: "정명훈 (Huân)",
-      talkLabel: "베트남어 공개강연 · Bài giảng công cộng tiếng Việt",
       talkKo: "미정",
       talkVi: "chưa biết",
       speaker: "최찬 (Kiên)",
@@ -480,7 +476,6 @@
       wtConductor: "김현일 (Bảo)", wtReader: "최재호 (Tín)", closing: "최찬 (Kiên)" },
     { month: 11, day: 7, year: 2027,
       chairman: "최재호 (Tín)",
-      talkLabel: "베트남어 공개강연 · Bài giảng công cộng tiếng Việt",
       talkKo: "미정",
       talkVi: "chưa biết",
       speaker: "정명훈 (Huân)",
@@ -715,7 +710,7 @@
     var td = el("td", { colspan: 3, className: "cell-weekend" });
     if (row.talkVietnamese) {
       /* 베트남어 특별강연: 이름표를 talkLabel로 바꾸고 베트남어 제목을 위(본문), 한국어 부제를 아래에 표시 */
-      td.appendChild(el("span", { className: "cell-label", text: row.talkLabel }));
+      td.appendChild(el("span", { className: "cell-label", text: row.talkLabel || "공개강연 Bài giảng công cộng" }));
       td.appendChild(document.createTextNode(row.talkVi));
       if (!isUndecided(row.talkKo)) {
         td.appendChild(el("span", { className: "th-vi", text: row.talkKo }));
