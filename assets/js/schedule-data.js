@@ -698,9 +698,9 @@
   function weekendTalkCell(row) {
     var speakerKnown = !isUndecided(row.speaker);
     if (!speakerKnown) {
-      /* 연사 미정: 이름표 "공개강연 (JW스트림)"만 표시 */
-      var pending = labelledCell(["공개강연 (JW스트림)", "Bài giảng công cộng"], 3);
-      pending.className = "cell-weekend";
+      /* 연사 미정: 머리글에 "공개강연"이 있으므로 "(JW스트림)"만 표시 */
+      var pending = el("td", { colspan: 3, className: "cell-weekend" });
+      pending.appendChild(document.createTextNode("(JW스트림)"));
       if (row.talkLabel) {
         pending.appendChild(el("strong", { className: "schedule-note", text: row.talkLabel }));
       }
@@ -710,15 +710,16 @@
     var td = el("td", { colspan: 3, className: "cell-weekend" });
     if (row.talkVietnamese) {
       /* 베트남어 특별강연: 이름표를 talkLabel로 바꾸고 베트남어 제목을 위(본문), 한국어 부제를 아래에 표시 */
-      td.appendChild(el("span", { className: "cell-label", text: row.talkLabel || "공개강연 Bài giảng công cộng" }));
+      if (row.talkLabel) {
+        td.appendChild(el("span", { className: "cell-label", text: row.talkLabel }));
+      }
       td.appendChild(document.createTextNode(row.talkVi));
       if (!isUndecided(row.talkKo)) {
         td.appendChild(el("span", { className: "th-vi", text: row.talkKo }));
       }
     } else {
-      td.appendChild(el("span", { className: "cell-label cell-label-inline", text: "공개강연 Bài giảng công cộng" }));
       if (!isUndecided(row.talkKo)) {
-        td.appendChild(document.createTextNode(" " + row.talkKo));
+        td.appendChild(document.createTextNode(row.talkKo));
       }
       if (row.talkLabel) {
         td.appendChild(el("strong", { className: "schedule-note", text: row.talkLabel }));
@@ -746,9 +747,7 @@
   function labelledName(label, colspan, text, note) {
     var td = el("td", { colspan: colspan, className: "cell-weekend" });
     if (!text) return td; /* 낭독자 없음: 빈칸 */
-    var labelEl = el("span", { className: "cell-label" });
-    appendLines(labelEl, label[0] + "\n" + label[1]);
-    td.appendChild(labelEl);
+    /* 이름표(파수대/낭독)는 표 머리글에 있으므로 칸 안에는 표시하지 않는다 */
     var pair = splitNamePair(text);
     if (pair) {
       td.appendChild(document.createTextNode(pair.main + " "));
