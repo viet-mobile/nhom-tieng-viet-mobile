@@ -790,6 +790,13 @@
     var wrapper = el("div", { className: "schedule-scroll" });
     var table = el("table", { className: "schedule-table" });
 
+    /* 열 폭은 CSS(.c-*)의 비율로 고정: 4~7번 칸 동일, 공개강연 = 연설+보물+낭독 3열 */
+    var colgroup = el("colgroup");
+    ["c-date", "c-chair", "c-talk", "c-talk", "c-talk", "c-fs", "c-fs", "c-fs", "c-fs", "c-prayer"].forEach(function (name) {
+      colgroup.appendChild(el("col", { className: name }));
+    });
+    table.appendChild(colgroup);
+
     var thead = el("thead");
     var tr1 = el("tr");
     tr1.appendChild(headerCell("th", ["날짜", "Ngày"], { rowspan: 2, className: "col-date" }));

@@ -314,24 +314,32 @@ main {
 
 /* ---- Schedule table ---- */
 .schedule-scroll {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+  overflow-x: visible;
 }
 
 .schedule-table {
   border-collapse: collapse;
+  table-layout: fixed;
   width: 100%;
-  min-width: 1000px;
-  font-size: 0.88rem;
+  font-size: clamp(0.6rem, 2.6vw, 0.88rem);
   background: var(--color-surface);
 }
+
+/* 열 폭 비율(합계 100%): 4~7번 칸 동일, 공개강연 = 3열 병합 */
+.schedule-table col.c-date { width: 8%; }
+.schedule-table col.c-chair { width: 10%; }
+.schedule-table col.c-talk { width: 11%; }
+.schedule-table col.c-fs { width: 9.5%; }
+.schedule-table col.c-prayer { width: 11%; }
 
 .schedule-table th,
 .schedule-table td {
   border: 1px solid var(--color-border);
-  padding: 0.5em 0.6em;
+  padding: 0.5em 0.3em;
   text-align: center;
   vertical-align: middle;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 .schedule-table thead th {
@@ -340,11 +348,6 @@ main {
 
 .schedule-table thead th.group-treasure {
   background: var(--c7);
-}
-
-/* 공개강연 칸(3열 병합)이 넓어지도록 성경에 담긴 보물 열의 최소 폭 확보 */
-.schedule-table thead tr:nth-child(2) th.group-treasure {
-  min-width: 9em;
 }
 
 .schedule-table thead th.group-fs {
@@ -373,7 +376,7 @@ main {
   display: block;
   width: fit-content;
   margin: 0.25em auto 0;
-  padding: 0 0.5em;
+  padding: 0 0.3em;
   border-radius: 999px;
   font-size: 0.75em;
   font-weight: 700;
@@ -398,20 +401,8 @@ main {
   margin-bottom: 0.3em;
 }
 
-.schedule-table td.col-date,
-.schedule-table th.col-date {
-  width: 1%;
-  padding-left: 0.4em;
-  padding-right: 0.4em;
-}
-
 .schedule-table td.col-date {
   font-weight: 600;
-  white-space: nowrap;
-}
-
-.schedule-table td.col-date .schedule-note {
-  white-space: normal;
 }
 
 .schedule-note {
@@ -435,11 +426,6 @@ main {
 .talk-speaker {
   display: block;
   margin-top: 0.4em;
-}
-
-.schedule-table td.col-fs {
-  min-width: 5em;
-  white-space: nowrap;
 }
 
 .schedule-multi span {
