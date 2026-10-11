@@ -86,8 +86,13 @@
     {month: 2, day: 25, year: 2027, weekday: null, special: null, chairman: "이주복 (Trung)", talk: "비디오 (Video)", gems: "최찬 (Kiên)", reading: "김현일 (Bảo)", fs4: ["정명훈(Huân)","최재호(Tín)"], fs5: ["김가영(Vân)","이선미(Trà My)"], fs6: ["김자영(Diễm My)","김수빈(Hồng)"], fs7: []},
     {month: 3, day: 4, year: 2027, weekday: null, special: null, chairman: "김현일 (Bảo)", talk: "이주복 (Trung)", gems: "정명훈 (Huân)", reading: "비디오 (Video)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
     {month: 3, day: 11, year: 2027, weekday: null, special: null, chairman: "정명훈 (Huân)", talk: "김현일 (Bảo)", gems: "이주복 (Trung)", reading: "최찬 (Kiên)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
-    {month: 3, day: 18, year: 2027, weekday: null, special: null, chairman: "최재호 (Tín)", talk: "최찬 (Kiên)", gems: "김현일 (Bảo)", reading: "비디오 (Video)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
-    {month: 3, day: 25, year: 2027, weekday: null, special: null, chairman: "최찬 (Kiên)", talk: "정명훈 (Huân)", gems: "최재호 (Tín)", reading: "이주복 (Trung)", fs4: ["김현일(Bảo)","최혜린(Linh)"], fs5: ["김가영(Vân)","정수진(Thơm)"], fs6: ["김자영(Diễm My)","이윤서(Luyến)"], fs7: []},
+    {month: 3, day: 18, year: 2027, weekday: null, special: null, chairman: "최재호 (Tín)", talk: "최찬 (Kiên)", gems: "정명훈 (Huân)", reading: "비디오 (Video)", fs4: ["김현일(Bảo)", "최혜린(Linh)"], fs5: ["김가영(Vân)", "정수진(Thơm)"], fs6: ["김자영(Diễm My)", "이윤서(Luyến)"], fs7: []},
+    { month: 3, day: 22, year: 2027, weekday: "월요일", special: null,
+      event: "예수 그리스도의 죽음의 기념식\n사회: 김현일 (Bảo) · 연사: 정명훈 (Huân)\n연제: 하느님과 그리스도께서 당신을 위해 하신 일에 감사를 나타내십시오!\n빵 기도: 최재호 (Tín) · 포도주 기도: 이주복 (Trung) · 마치는 기도: 정명훈 (Huân)",
+      eventVi: "Lễ Tưởng Niệm sự hy sinh của Chúa Giê-su\nChủ tọa: Bảo · Diễn giả: Huân\nBài giảng: Hãy biết ơn điều Đức Chúa Trời và Đấng Ki-tô đã làm cho bạn!\nCầu nguyện về bánh: Tín · Cầu nguyện về rượu nho: Trung · Cầu nguyện kết thúc: Huân" },
+    { month: 3, day: 25, year: 2027, weekday: null, special: null,
+      event: "집회 없음",
+      eventVi: "Không có nhóm họp" },
     {month: 4, day: 1, year: 2027, weekday: null, special: null, chairman: "이주복 (Trung)", talk: "최재호 (Tín)", gems: "최찬 (Kiên)", reading: "비디오 (Video)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
     {month: 4, day: 8, year: 2027, weekday: null, special: null, chairman: "김현일 (Bảo)", talk: "이주복 (Trung)", gems: "최재호 (Tín)", reading: "정명훈 (Huân)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
     {month: 4, day: 15, year: 2027, weekday: null, special: null, chairman: "정명훈 (Huân)", talk: "비디오 (Video)", gems: "이주복 (Trung)", reading: "비디오 (Video)", fs4: ["비디오 (Video)"], fs5: ["비디오 (Video)"], fs6: ["비디오 (Video)"], fs7: []},
@@ -260,18 +265,18 @@
       speaker: "미정 (chưa biết)",
       wtConductor: "김현일 (Bảo)", wtReader: "최찬 (Kiên)", closing: "정명훈 (Huân)" },
     { month: 3, day: 7, year: 2027,
-      chairman: "최찬 (Kiên)",
-      talkLabel: "베트남어 공개강연 · Bài giảng công cộng tiếng Việt",
-      talkKo: "미정",
-      talkVi: "chưa biết",
-      speaker: "이주복 (Trung)",
-      wtConductor: "김현일 (Bảo)", wtReader: "정명훈 (Huân)", closing: "이주복 (Trung)" },
-    { month: 3, day: 14, year: 2027,
       chairman: "이주복 (Trung)",
       talkKo: "미정 (JW스트림)",
       talkVi: "chưa biết",
       speaker: "미정 (chưa biết)",
       wtConductor: "김현일 (Bảo)", wtReader: "최재호 (Tín)", closing: "최찬 (Kiên)" },
+    { month: 3, day: 14, year: 2027,
+      chairman: "최찬 (Kiên)",
+      talkLabel: "특별공개강연 · Bài giảng đặc biệt",
+      talkKo: "두려움이 없는 세상 — 가능합니까?",
+      talkVi: "Liệu có thể sống trong thế giới mà không còn sợ hãi?",
+      speaker: "이주복 (Trung)",
+      wtConductor: "김현일 (Bảo)", wtReader: "정명훈 (Huân)", closing: "이주복 (Trung)" },
     { month: 3, day: 21, year: 2027,
       chairman: "정명훈 (Huân)",
       talkKo: "미정 (JW스트림)",
@@ -776,9 +781,11 @@
     tr.className = "row-weekday";
     if (row.event) {
       var eventTd = el("td", { className: "schedule-event", colspan: 9 });
-      eventTd.appendChild(document.createTextNode(row.event));
+      appendLines(eventTd, row.event);
       if (row.eventVi) {
-        eventTd.appendChild(el("span", { className: "th-vi", text: row.eventVi }));
+        var viEl = el("span", { className: "th-vi" });
+        appendLines(viEl, row.eventVi);
+        eventTd.appendChild(viEl);
       }
       tr.appendChild(eventTd);
       return;
