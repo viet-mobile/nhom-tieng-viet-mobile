@@ -743,13 +743,13 @@
     tr.appendChild(weekendTalkCell(row));
     tr.appendChild(labelledName(["파수대", "Tháp Canh"], 2, row.wtConductor));
     tr.appendChild(labelledName(["낭독", "Đọc bài"], 2, row.wtReader));
-    tr.appendChild(labelledName(["기도", "Cầu nguyện"], 1, row.closing));
+    tr.appendChild(nameCell(row.closing));
   }
 
   function appendWeekdayRow(tr, row) {
     tr.className = "row-weekday";
     if (row.event) {
-      var eventTd = el("td", { className: "schedule-event", colspan: 8 });
+      var eventTd = el("td", { className: "schedule-event", colspan: 9 });
       eventTd.appendChild(document.createTextNode(row.event));
       if (row.eventVi) {
         eventTd.appendChild(el("span", { className: "th-vi", text: row.eventVi }));
@@ -765,6 +765,7 @@
     tr.appendChild(multiCell(row.fs5));
     tr.appendChild(multiCell(row.fs6));
     tr.appendChild(multiCell(row.fs7));
+    tr.appendChild(el("td"));
   }
 
   /* 주중 모임 + 주말 모임을 날짜순 하나의 표로 렌더링 */
@@ -783,9 +784,10 @@
     var thead = el("thead");
     var tr1 = el("tr");
     tr1.appendChild(headerCell("th", ["날짜", "Ngày"], { rowspan: 2, className: "col-date" }));
-    tr1.appendChild(headerCell("th", ["사회자 및\n시작기도", "Chủ tọa và\ncầu nguyện"], { rowspan: 2, className: "col-chair" }));
+    tr1.appendChild(headerCell("th", ["사회 및\n기도", "Chủ tọa và\ncầu nguyện"], { rowspan: 2, className: "col-chair" }));
     tr1.appendChild(headerCell("th", ["성경에 담긴 보물", "KHO BÁU TỪ KINH THÁNH"], { colspan: 3, className: "group-treasure" }));
     tr1.appendChild(headerCell("th", ["야외 봉사에 힘쓰십시오", "CẢI THIỆN THÁNH CHỨC"], { colspan: 4, className: "group-fs" }));
+    tr1.appendChild(headerCell("th", ["기도", "Cầu nguyện"], { rowspan: 2, className: "col-prayer" }));
     thead.appendChild(tr1);
 
     var tr2 = el("tr");

@@ -347,7 +347,8 @@ main {
 }
 
 .schedule-table thead th.col-date,
-.schedule-table thead th.col-chair {
+.schedule-table thead th.col-chair,
+.schedule-table thead th.col-prayer {
   background: var(--color-surface);
 }
 
