@@ -343,22 +343,26 @@ main {
   overflow-wrap: break-word;
 }
 
+/* 머리글 고정: 스크롤해도 맨 위에 붙어 있도록 sticky (각 줄의 top 값은 JS가 계산) */
 .schedule-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 3;
   font-weight: 700;
+  background-color: var(--color-surface);
+  box-shadow: inset 0 -1px 0 var(--color-border);
 }
 
 .schedule-table thead th.group-treasure {
-  background: var(--c7);
+  background-image: linear-gradient(var(--c7), var(--c7));
+}
+
+.schedule-table thead th.group-weekend {
+  background-image: linear-gradient(rgba(170, 220, 175, 0.55), rgba(170, 220, 175, 0.55));
 }
 
 .schedule-table thead th.group-fs {
-  background: var(--c4);
-}
-
-.schedule-table thead th.col-date,
-.schedule-table thead th.col-chair,
-.schedule-table thead th.col-prayer {
-  background: var(--color-surface);
+  background-image: linear-gradient(var(--c4), var(--c4));
 }
 
 .schedule-table .th-vi {

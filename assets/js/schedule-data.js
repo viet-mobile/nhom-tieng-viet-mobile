@@ -834,12 +834,19 @@
     table.appendChild(colgroup);
 
     var thead = el("thead");
+    /* 맨 위 줄: 주말 모임 순서 안내 박스(녹색) + 날짜·사회 및 기도·기도 열(3행 병합) */
+    var tr0 = el("tr");
+    tr0.appendChild(headerCell("th", ["날짜", "Ngày"], { rowspan: 3, className: "col-date" }));
+    tr0.appendChild(headerCell("th", ["사회 및\n기도", "Chủ tọa và\ncầu nguyện"], { rowspan: 3, className: "col-chair" }));
+    tr0.appendChild(headerCell("th", ["공개강연 Bài giảng công cộng"], { colspan: 3, className: "group-weekend" }));
+    tr0.appendChild(headerCell("th", ["파수대 Tháp Canh"], { colspan: 2, className: "group-weekend" }));
+    tr0.appendChild(headerCell("th", ["낭독 Đọc bài"], { colspan: 2, className: "group-weekend" }));
+    tr0.appendChild(headerCell("th", ["기도", "Cầu nguyện"], { rowspan: 3, className: "col-prayer" }));
+    thead.appendChild(tr0);
+
     var tr1 = el("tr");
-    tr1.appendChild(headerCell("th", ["날짜", "Ngày"], { rowspan: 2, className: "col-date" }));
-    tr1.appendChild(headerCell("th", ["사회 및\n기도", "Chủ tọa và\ncầu nguyện"], { rowspan: 2, className: "col-chair" }));
     tr1.appendChild(headerCell("th", ["성경에 담긴 보물", "KHO BÁU TỪ KINH THÁNH"], { colspan: 3, className: "group-treasure" }));
     tr1.appendChild(headerCell("th", ["야외 봉사에 힘쓰십시오", "CẢI THIỆN THÁNH CHỨC"], { colspan: 4, className: "group-fs" }));
-    tr1.appendChild(headerCell("th", ["기도", "Cầu nguyện"], { rowspan: 2, className: "col-prayer" }));
     thead.appendChild(tr1);
 
     var tr2 = el("tr");
@@ -867,6 +874,29 @@
 
     wrapper.appendChild(table);
     container.appendChild(wrapper);
+    stickHeader(table);
+  }
+
+  /* 머리글 줄마다 sticky top 값을 (그 줄의 표 안 위치)로 지정해 3줄 머리글 전체를 고정 */
+  function stickHeader(table) {
+    function apply() {
+      var rows = table.tHead.rows;
+      var base = rows[0].cells[0].offsetTop;
+      Array.prototype.forEach.call(rows, function (row, index) {
+        var top = index === 0 ? 0 : Math.max(0, row.cells[0].offsetTop - base - 1);
+        Array.prototype.forEach.call(row.cells, function (cell) {
+          cell.style.top = top + "px";
+        });
+      });
+    }
+    apply();
+    if (global.addEventListener) {
+      global.addEventListener("resize", apply);
+      global.addEventListener("load", apply);
+    }
+    if (global.document && global.document.fonts && global.document.fonts.ready) {
+      global.document.fonts.ready.then(apply);
+    }
   }
 
   global.NhomSchedule = {
