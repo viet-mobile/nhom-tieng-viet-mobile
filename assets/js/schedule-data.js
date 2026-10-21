@@ -163,9 +163,10 @@
       wtConductor: "김현일 (Bảo)", wtReader: "최찬 (Kiên)", closing: "이주복 (Trung)" },
     { month: 10, day: 25, year: 2026,
       chairman: "이주복 (Trung)",
-      talkKo: "미정 (JW스트림)",
-      talkVi: "chưa biết",
-      speaker: "미정 (chưa biết)",
+      talkVietnamese: true, talkNo: 189,
+      talkKo: "하느님과 함께 걸으면 지금부터 영원히 축복을 받는다",
+      talkVi: "Đồng đi với Đức Chúa Trời mang lại ân phước bây giờ và mãi mãi",
+      speaker: "Khoa", talkExtra: ["Hội thánh: Gia Bình", "Bài hát: 31 Hãy bước đi với Đức Chúa Trời!"],
       wtConductor: "김현일 (Bảo)", wtReader: "정명훈 (Huân)", closing: "최재호 (Tín)" },
     { month: 11, day: 1, year: 2026,
       chairman: "최찬 (Kiên)",
@@ -181,9 +182,10 @@
       wtConductor: "김현일 (Bảo)", wtReader: "최재호 (Tín)", closing: "최찬 (Kiên)" },
     { month: 11, day: 22, year: 2026,
       chairman: "최찬 (Kiên)",
-      talkKo: "미정 (JW스트림)",
-      talkVi: "chưa biết",
-      speaker: "미정 (chưa biết)",
+      talkVietnamese: true, talkNo: 65,
+      talkKo: "분노가 가득한 세상에서 평화를 이루는 방법",
+      talkVi: "Vun đắp sự hòa thuận trong một thế gian hay giận dữ",
+      speaker: "김기정 (Thanh Sơn)", talkExtra: ["Hội thánh: Malaysia Sibu Iban (말레이시아 시부 이반)", "Bài hát: 130 Hãy tha thứ"],
       wtConductor: "김현일 (Bảo)", wtReader: "이주복 (Trung)", closing: "정명훈 (Huân)" },
     { month: 11, day: 29, year: 2026,
       chairman: "정명훈 (Huân)",
@@ -740,6 +742,9 @@
       speaker.appendChild(el("span", { className: "name-sub", text: "Diễn giả: " + row.speaker }));
     }
     td.appendChild(speaker);
+    (row.talkExtra || []).forEach(function (line) {
+      td.appendChild(el("span", { className: "th-vi", text: line }));
+    });
     return td;
   }
 
