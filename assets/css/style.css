@@ -314,6 +314,8 @@ main {
 
 /* ---- Schedule table ---- */
 .schedule-scroll {
+  width: calc(100vw - 2rem);
+  margin-left: calc((100% - 100vw + 2rem) / 2);
   overflow-x: visible;
 }
 
